@@ -22,10 +22,10 @@
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 app:columnCount="3"
-                app:distributeEvenly="true"
-                app:textVerticalPadding="6dp"
+                app:distributeEvenly="false"
+                app:textVerticalPadding="4dp"
                 app:radius="12dp"
-                app:segments="@array/your_array_data" />
+                app:segments="@array/segments" />
 
         </RelativeLayout>
 
