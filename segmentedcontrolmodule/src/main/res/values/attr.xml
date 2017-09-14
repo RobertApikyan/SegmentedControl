@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SegmentedControl">
+        <attr name="distributeEvenly" format="boolean" />
+        <attr name="columnCount" format="integer" />
+        <attr name="segments" format="reference" />
+        <attr name="selectedStockColor" format="color" />
+        <attr name="unSelectedStockColor" format="color" />
+        <attr name="stockWidth" format="dimension" />
+        <attr name="selectedBackgroundColor" format="color" />
+        <attr name="unSelectedBackgroundColor" format="color" />
+        <attr name="selectedTextColor" format="color"/>
+        <attr name="unSelectedTextColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textHorizontalPadding" format="dimension"/>
+        <attr name="textVerticalPadding" format="dimension"/>
+        <attr name="segmentVerticalMargin" format="dimension"/>
+        <attr name="segmentHorizontalMargin" format="dimension"/>
+        <attr name="radius" format="dimension"/>
+        <attr name="topLeftRadius" format="dimension"/>
+        <attr name="topRightRadius" format="dimension"/>
+        <attr name="bottomRightRadius" format="dimension"/>
+        <attr name="bottomLeftRadius" format="dimension"/>
+        <attr name="radiusForEverySegment" format="boolean"/>
+    </declare-styleable>
+</resources>

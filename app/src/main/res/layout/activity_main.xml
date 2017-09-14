@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context="segmented_control.widget.custom.android.com.segmentedcontrolexample.MainActivity">
+
+            <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
+                android:id="@+id/segmented_control"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:columnCount="2"
+                app:distributeEvenly="false"
+                app:segments="@array/segments" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/edit_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/ic_mode_edit_white_24px"
+        app:useCompatPadding="true" />
+
+    <ImageView
+        android:id="@+id/reset_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/restore_iv"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onResetClick"
+        app:srcCompat="@drawable/ic_restore_page_black_24px" />
+</RelativeLayout>
+
