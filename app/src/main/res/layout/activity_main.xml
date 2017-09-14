@@ -21,9 +21,11 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
-                app:columnCount="2"
-                app:distributeEvenly="false"
-                app:segments="@array/segments" />
+                app:columnCount="3"
+                app:distributeEvenly="true"
+                app:textVerticalPadding="6dp"
+                app:radius="12dp"
+                app:segments="@array/your_array_data" />
 
         </RelativeLayout>
 
