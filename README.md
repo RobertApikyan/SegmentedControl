@@ -1,23 +1,5 @@
 # Android SegmentedControl + multi row support
 
-## Download
-### Add to project level build.gradle
-    
-    allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-### Add dependency to app module level build.gradle
-    
-    dependencies {
-	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0'
-	}
-
-# Thats it 
-    
-
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
 ## Segmented control for android, with highly customizable properties 
@@ -33,8 +15,22 @@
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-202249.png)
 
 
-
-
+## Download
+### Add to project level build.gradle
+    
+    allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+### Add dependency to app module level build.gradle
+    
+    dependencies {
+	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0'
+	}
+ 
+### Done.
 
 ## Simple usage in XML
     <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
