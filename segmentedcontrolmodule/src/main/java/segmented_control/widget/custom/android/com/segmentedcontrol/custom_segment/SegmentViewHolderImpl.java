@@ -11,9 +11,9 @@ import android.widget.TextView;
 import segmented_control.widget.custom.android.com.segmented_control.R;
 import segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column.SegmentViewHolder;
 
-import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.createRadius;
-import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.defineRadiusForPosition;
-import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.getBackground;
+import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.SegmentedControlUtils.createRadius;
+import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.SegmentedControlUtils.defineRadiusForPosition;
+import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.SegmentedControlUtils.getBackground;
 
 /**
  * Created by Robert Apikyan on 9/8/2017.

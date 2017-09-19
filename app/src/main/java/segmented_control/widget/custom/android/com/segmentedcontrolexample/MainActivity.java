@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         segmentData = getResources().getStringArray(R.array.segments);
         //noinspection unchecked
         segmentedControl = (SegmentedControl) findViewById(R.id.segmented_control);
+        segmentedControl.setAdapter(new AppSegmentAdapter());
 
         RemixerBinder.bind(this);
         RemixerFragment.newInstance().attachToFab(this, (FloatingActionButton) findViewById(R.id.edit_fab));

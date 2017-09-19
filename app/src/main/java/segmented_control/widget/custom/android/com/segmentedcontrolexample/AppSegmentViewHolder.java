@@ -12,6 +12,7 @@ import segmented_control.widget.custom.android.com.segmentedcontrol.item_row_col
 
 public class AppSegmentViewHolder extends SegmentViewHolder<String> {
     TextView textView;
+
     public AppSegmentViewHolder(@NonNull View sectionView) {
         super(sectionView);
         textView = (TextView) sectionView.findViewById(R.id.text_view);

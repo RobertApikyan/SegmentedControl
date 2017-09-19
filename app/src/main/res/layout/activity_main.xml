@@ -25,7 +25,7 @@
                 app:distributeEvenly="false"
                 app:textVerticalPadding="4dp"
                 app:radius="12dp"
-                app:segments="@array/segments" />
+                 />
 
         </RelativeLayout>
 

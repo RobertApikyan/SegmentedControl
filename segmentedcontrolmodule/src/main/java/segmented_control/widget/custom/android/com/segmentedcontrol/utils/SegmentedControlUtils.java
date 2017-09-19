@@ -11,7 +11,7 @@ import segmented_control.widget.custom.android.com.segmentedcontrol.item_row_col
  * Created by Robert Apikyan on 9/8/2017.
  */
 
-public class Utils {
+public class SegmentedControlUtils {
     public static <T> T lazy(T nullable, T nonNull) {
         if (nullable == null) {
             nullable = nonNull;

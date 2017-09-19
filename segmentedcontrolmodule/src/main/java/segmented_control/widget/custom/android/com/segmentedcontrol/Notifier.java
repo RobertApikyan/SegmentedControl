@@ -8,7 +8,7 @@ import segmented_control.widget.custom.android.com.segmentedcontrol.listeners.On
 import segmented_control.widget.custom.android.com.segmentedcontrol.listeners.OnSegmentSelectRequestListener;
 import segmented_control.widget.custom.android.com.segmentedcontrol.listeners.OnSegmentSelectedListener;
 
-import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.lazy;
+import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.SegmentedControlUtils.lazy;
 
 
 /**
