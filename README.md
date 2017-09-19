@@ -1,7 +1,7 @@
 # Android SegmentedControl + multi row support
 
 ## Download
-add to project level build.gradle
+### Add to project level build.gradle
     
     allprojects {
 		repositories {
@@ -9,13 +9,13 @@ add to project level build.gradle
 			maven { url 'https://jitpack.io' }
 		}
 	}
-add dependency to app module level build.gradle
+### Add dependency to app module level build.gradle
     
     dependencies {
 	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0'
 	}
 
-##DONE.
+# Thats it 
     
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
