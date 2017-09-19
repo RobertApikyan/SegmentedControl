@@ -154,11 +154,10 @@ public class SegmentedControlUtils {
     }
 
     /**
-     *
      * @param stockWidth, stock width
      * @param stockColor, stock color
-     * @param argb, background color
-     * @param radii, use {@link #defineRadiusForPosition(int, int, int, int, int, int, int)} method to define radii
+     * @param argb,       background color
+     * @param radii,      use {@link #defineRadiusForPosition(int, int, int, int, int, int, int)} method to define radii
      * @return background drawable
      */
     public static Drawable getBackground(int stockWidth, int stockColor, int argb, float[] radii) {
