@@ -79,19 +79,15 @@
         
 ### Note: After every configuration change call segmentedControl.notifyConfigIsChanged() method 
 #### Example.
-    ....
 ```java
         segmentedControl.setStockWidth(width.intValue());
         segmentedControl.setColumnCount(columnCount);
         segmentedControl.notifyConfigIsChanged();
 ```
-    ....
 
 > SegmentedControl uses SegmentAdapter and SegmentViewHolder for displaying segments. There are allready exist a default implementations for SegmentAdapter (SegmentAdapterImpl) and SegmentViewHolder (SegmentViewHolderImpl), but if you want to make your custom implementation... well here is the steps 
 ### 1. define segment_item.xml inside layouts folder
-    
-    
-    
+```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -108,9 +104,10 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp" />
     </LinearLayout>
+```
 
 ### 2. Craete SegmentViewHolder instance AppSegmentViewHolder (here I define the segment generic data type as a String)
-
+```java
     public class AppSegmentViewHolder extends SegmentViewHolder<String> {
         TextView textView;
     
@@ -124,7 +121,9 @@
             textView.setText(segmentData);
         }
     }
+```
 ### 3. Create SegmentAdapter instance 
+```java
     public class AppSegmentAdapter extends SegmentAdapter<String, AppSegmentViewHolder> {
 
         @NonNull
@@ -133,14 +132,16 @@
             return new AppSegmentViewHolder(layoutInflater.inflate(R.layout.item_segment, null));
         }
     }
-
+```
 ### 4. Pass the adapter to the segmentedControl
-
+```java
     segmentedControl = (SegmentedControl) findViewById(R.id.segmented_control);
     segmentedControl.setAdapter(new AppSegmentAdapter());
-
+```
 ### 5.Finally add segements data. 
+```java
     segmentedControl.addSegments(getResources().getStringArray(R.array.segments));
+```
 ### Thatas it ) 
 ### For custom implementation use SegmentedControlUtils helper class in order to define segment background type and background radius.
 
