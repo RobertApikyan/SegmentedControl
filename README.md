@@ -2,7 +2,7 @@
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
-[Demo App Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
+[Demo App, Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
 
 
 ## Segmented control for android, with highly customizable properties 
@@ -135,5 +135,5 @@
 ### Thatas it ) 
 ### For custom implementation use SegmentedControlUtils helper class in order to define segment background type and background radius.
 
-[![View Robert Apikyan profile on LinkedIn](http://futurethink.com/wp-content/uploads/2017/05/Linkedin-logo-1-550x550-300x300.png)](https://www.linkedin.com/in/robert-apikyan-24b915130/)
+[![View Robert Apikyan profile on LinkedIn](https://static1.squarespace.com/static/55c672ece4b029ac822d96b7/5626d601e4b0fcee4755db7f/5627ba19e4b0117fa7491ab4/1445444231751/linkedin.png)](https://www.linkedin.com/in/robert-apikyan-24b915130/)
 
