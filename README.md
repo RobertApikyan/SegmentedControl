@@ -21,23 +21,25 @@
 
 ## Download
 ### Add to project level build.gradle
-    
+```groovy
     allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
+```
 ### Add dependency to app module level build.gradle
-    
+```groovy
     dependencies {
 	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0'
 	}
+```
  
 ### Done.
 
 ## Simple usage in XML
-```java
+```xml
 <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
                 android:id="@+id/segmented_control"
                 android:layout_width="match_parent"
@@ -51,6 +53,7 @@
 ```
 
 # Attributes 
+```xml
      <attr name="distributeEvenly" format="boolean" /> setDistributeEvenly(boolean)
      <attr name="columnCount" format="integer" /> setColumnCount(int)
      <attr name="segments" format="reference" /> addSegments(Object[]), addSegments(List)
@@ -72,13 +75,16 @@
      <attr name="bottomRightRadius" format="dimension"/> setBottomRightRadius(int)
      <attr name="bottomLeftRadius" format="dimension"/> setBottomLeftRadius(int)
      <attr name="radiusForEverySegment" format="boolean"/> setRadiusForEverySegment(boolean)
+```
         
 ### Note: After every configuration change call segmentedControl.notifyConfigIsChanged() method 
 #### Example.
     ....
+```java
         segmentedControl.setStockWidth(width.intValue());
         segmentedControl.setColumnCount(columnCount);
         segmentedControl.notifyConfigIsChanged();
+```
     ....
 
 > SegmentedControl uses SegmentAdapter and SegmentViewHolder for displaying segments. There are allready exist a default implementations for SegmentAdapter (SegmentAdapterImpl) and SegmentViewHolder (SegmentViewHolderImpl), but if you want to make your custom implementation... well here is the steps 
