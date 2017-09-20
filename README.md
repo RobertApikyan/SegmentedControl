@@ -2,7 +2,7 @@
 
 ![N|Solid](=250x250)
 
-<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png " data-canonical-src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png " width="200" height="400" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png " data-canonical-src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png " width="150" height="150" />
 
 [Demo App, Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
 
