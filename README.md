@@ -37,7 +37,8 @@
 ### Done.
 
 ## Simple usage in XML
-    <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
+```java
+<segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
                 android:id="@+id/segmented_control"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -47,6 +48,7 @@
                 app:textVerticalPadding="6dp"
                 app:radius="12dp"
                 app:segments="@array/your_array_data" />
+```
 
 # Attributes 
      <attr name="distributeEvenly" format="boolean" /> setDistributeEvenly(boolean)
@@ -137,3 +139,20 @@
 ### For custom implementation use SegmentedControlUtils helper class in order to define segment background type and background radius.
 
 [![View Robert Apikyan profile on LinkedIn](https://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png)](https://www.linkedin.com/in/robert-apikyan-24b915130/)
+
+License
+-------
+
+    Copyright 2017 Robert Apikyan
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
