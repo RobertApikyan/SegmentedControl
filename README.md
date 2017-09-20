@@ -7,9 +7,7 @@
 
 ## Segmented control for android, with highly customizable properties 
 
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif)
-
-<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" data-canonical-src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" width="300" height="800" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" data-canonical-src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" width="300" height="600" />
 
 ## ScreenShots
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133621.png)
