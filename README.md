@@ -135,3 +135,5 @@
 ### Thatas it ) 
 ### For custom implementation use SegmentedControlUtils helper class in order to define segment background type and background radius.
 
+[![View Ghazanfar Abbas's profile on LinkedIn](https://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png)](http://pk.linkedin.com/pub/ghazanfar-abbas/27/a/18b)
+
