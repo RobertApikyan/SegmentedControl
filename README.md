@@ -1,4 +1,5 @@
-# Android SegmentedControl + multi row support (API 16 and above)
+# Android SegmentedControl + multi row support 
+##(API 16+)
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
