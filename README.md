@@ -4,6 +4,8 @@
 
 [Demo App, Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
 
+[Live App url](https://appetize.io/app/y4e91xhxgp47956bf73da4z4yg)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Segmented control for android, with a lot of customization properties
