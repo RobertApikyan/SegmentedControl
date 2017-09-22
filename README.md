@@ -1,10 +1,10 @@
-# Android SegmentedControl + multi row support
+# Android SegmentedControl + multi row support (API 16 and above)
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
 [Demo App, Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
 
-[Live App url](https://appetize.io/app/y4e91xhxgp47956bf73da4z4yg)
+[Or try demo App online !](https://appetize.io/app/y4e91xhxgp47956bf73da4z4yg)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
