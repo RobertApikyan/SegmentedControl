@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         //noinspection unchecked
         segmentedControl = (SegmentedControl) findViewById(R.id.segmented_control);
 
-//        String fontPath = "fonts/newFont.ttf"; // dir in assets/fonts/newFont.ttf
-//        Typeface typeface = Typeface.createFromAsset(getAssets(),fontPath); // create the typeface
-//        segmentedControl.setTypeFace(typeface); // and set it
-
         RemixerBinder.bind(this);
         RemixerFragment.newInstance().attachToFab(this, (FloatingActionButton) findViewById(R.id.edit_fab));
     }
