@@ -78,6 +78,7 @@
      <attr name="bottomRightRadius" format="dimension"/> setBottomRightRadius(int)
      <attr name="bottomLeftRadius" format="dimension"/> setBottomLeftRadius(int)
      <attr name="radiusForEverySegment" format="boolean"/> setRadiusForEverySegment(boolean)
+     <attr name="fontAssetPath" format="string"/>  setTypeFace(TypeFace)
 ```
         
 ### Note: After every configuration change call segmentedControl.notifyConfigIsChanged() method 
