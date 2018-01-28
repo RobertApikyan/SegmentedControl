@@ -1,39 +1,49 @@
-# Android SegmentedControl + multi row support
+# Android SegmentedControl + multi row support 
+##(API 16+)
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
-## Segmented control for android, with highly customizable properties 
+[Demo App, Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
 
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif)
+[Or try demo App online !](https://appetize.io/app/y4e91xhxgp47956bf73da4z4yg)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+## Segmented control for android, with a lot of customization properties
+
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" width="300" height="525" />
 
 ## ScreenShots
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133621.png)
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133711.png)
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133736.png)
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133907.png)
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-134003.png)
-![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-202249.png)
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133621.png" width="400" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133711.png" width="400" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133736.png" width="400" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133907.png" width="400" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-134003.png" width="400" />
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-202249.png" width="400" />
 
 
 ## Download
 ### Add to project level build.gradle
-    
+```groovy
     allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
+```
 ### Add dependency to app module level build.gradle
-    
+```groovy
     dependencies {
 	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0'
 	}
+```
  
 ### Done.
 
 ## Simple usage in XML
-    <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
+```xml
+<segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
                 android:id="@+id/segmented_control"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -43,8 +53,10 @@
                 app:textVerticalPadding="6dp"
                 app:radius="12dp"
                 app:segments="@array/your_array_data" />
+```
 
 # Attributes 
+```xml
      <attr name="distributeEvenly" format="boolean" /> setDistributeEvenly(boolean)
      <attr name="columnCount" format="integer" /> setColumnCount(int)
      <attr name="segments" format="reference" /> addSegments(Object[]), addSegments(List)
@@ -66,20 +78,19 @@
      <attr name="bottomRightRadius" format="dimension"/> setBottomRightRadius(int)
      <attr name="bottomLeftRadius" format="dimension"/> setBottomLeftRadius(int)
      <attr name="radiusForEverySegment" format="boolean"/> setRadiusForEverySegment(boolean)
+```
         
 ### Note: After every configuration change call segmentedControl.notifyConfigIsChanged() method 
 #### Example.
-    ....
+```java
         segmentedControl.setStockWidth(width.intValue());
         segmentedControl.setColumnCount(columnCount);
         segmentedControl.notifyConfigIsChanged();
-    ....
+```
 
 > SegmentedControl uses SegmentAdapter and SegmentViewHolder for displaying segments. There are allready exist a default implementations for SegmentAdapter (SegmentAdapterImpl) and SegmentViewHolder (SegmentViewHolderImpl), but if you want to make your custom implementation... well here is the steps 
 ### 1. define segment_item.xml inside layouts folder
-    
-    
-    
+```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -96,9 +107,10 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp" />
     </LinearLayout>
+```
 
 ### 2. Craete SegmentViewHolder instance AppSegmentViewHolder (here I define the segment generic data type as a String)
-
+```java
     public class AppSegmentViewHolder extends SegmentViewHolder<String> {
         TextView textView;
     
@@ -112,7 +124,9 @@
             textView.setText(segmentData);
         }
     }
+```
 ### 3. Create SegmentAdapter instance 
+```java
     public class AppSegmentAdapter extends SegmentAdapter<String, AppSegmentViewHolder> {
 
         @NonNull
@@ -121,14 +135,34 @@
             return new AppSegmentViewHolder(layoutInflater.inflate(R.layout.item_segment, null));
         }
     }
-
+```
 ### 4. Pass the adapter to the segmentedControl
-
+```java
     segmentedControl = (SegmentedControl) findViewById(R.id.segmented_control);
     segmentedControl.setAdapter(new AppSegmentAdapter());
-
+```
 ### 5.Finally add segements data. 
+```java
     segmentedControl.addSegments(getResources().getStringArray(R.array.segments));
+```
 ### Thatas it ) 
 ### For custom implementation use SegmentedControlUtils helper class in order to define segment background type and background radius.
 
+[![View Robert Apikyan profile on LinkedIn](https://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png)](https://www.linkedin.com/in/robert-apikyan-24b915130/)
+
+License
+-------
+
+    Copyright 2017 Robert Apikyan
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
