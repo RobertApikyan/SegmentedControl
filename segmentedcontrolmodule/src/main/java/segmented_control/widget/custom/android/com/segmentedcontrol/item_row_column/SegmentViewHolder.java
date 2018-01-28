@@ -1,5 +1,6 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column;
 
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.view.View;
 
@@ -105,6 +106,8 @@ public abstract class SegmentViewHolder<D> extends DistributiveSectionLayout.Vie
     public int getTextSize() {
         return segmentData.getTextSize();
     }
+
+    public Typeface getTypeFace(){return segmentData.getTypeFace();}
 
     public int getCurrentSize() {
         return segmentData.getCurrentSize();

@@ -2,6 +2,7 @@ package segmented_control.widget.custom.android.com.segmentedcontrol;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -74,6 +75,7 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
             attrSelectedTextColor(typedArray);
             attrUnSelectedTextColor(typedArray);
             attrTextSize(typedArray);
+            attrFontAssetPath(typedArray);
             attrTextVerticalPadding(typedArray);
             attrTextHorizontalPadding(typedArray);
             attrSegmentHorizontalMargin(typedArray);
@@ -167,6 +169,14 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         int textSize = typedArray.getDimensionPixelSize(R.styleable.SegmentedControl_textSize, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));
         if (textSize > 0) {
             getControllerComponent().setTextSize(textSize);
+        }
+    }
+
+
+    private void attrFontAssetPath(TypedArray typedArray) {
+        String fontPath = typedArray.getString(R.styleable.SegmentedControl_fontAssetPath);
+        if (fontPath !=null && !fontPath.isEmpty()) {
+            getControllerComponent().setTypeFace(Typeface.createFromAsset(getContext().getAssets(),fontPath));
         }
     }
 
@@ -467,6 +477,8 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     public void setTextSize(int textSize) {
         getControllerComponent().setTextSize(textSize);
     }
+
+    public void setTypeFace(Typeface typeFace){getControllerComponent().setTypeFace(typeFace);}
 
     public void setTextVerticalPadding(int padding) {
         getControllerComponent().setTextVerticalPadding(padding);

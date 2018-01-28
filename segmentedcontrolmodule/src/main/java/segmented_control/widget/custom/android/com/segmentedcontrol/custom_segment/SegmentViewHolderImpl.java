@@ -38,6 +38,9 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         }
         setSectionDecorationSelected(false);
         itemTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, getTextSize());
+        if (getTypeFace()!=null){
+            itemTV.setTypeface(getTypeFace());
+        }
         itemTV.setPadding(getTextHorizontalPadding(), getTextVerticalPadding(), getTextHorizontalPadding(), getTextVerticalPadding());
         ViewGroup.MarginLayoutParams.class.cast(itemTV.getLayoutParams()).setMargins(getSegmentHorizontalMargin(), getSegmentVerticalMargin(), getSegmentHorizontalMargin(), getSegmentVerticalMargin());
     }

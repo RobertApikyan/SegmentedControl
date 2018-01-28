@@ -1,6 +1,7 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 
@@ -35,6 +36,9 @@ public class SegmentDecoration {
     public int segmentVerticalMargin;
     public int segmentHorizontalMargin;
 
+    // segment font type
+    public Typeface typeface;
+
     // radius
     public int topLeftRadius;
     public int topRightRadius;
@@ -51,6 +55,7 @@ public class SegmentDecoration {
         sd.selectedTextColor = ContextCompat.getColor(context, android.R.color.white);
         sd.unSelectedTextColor = accentColor;
         sd.stockWidth = 1;
+        sd.typeface = null;
         return sd;
     }
 
@@ -121,4 +126,6 @@ public class SegmentDecoration {
     public boolean isRadiusForEverySegment() {
         return radiusForEverySegment;
     }
+
+    public Typeface getTypeface(){return typeface;};
 }

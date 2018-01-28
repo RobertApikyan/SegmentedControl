@@ -1,5 +1,7 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column;
 
+import android.graphics.Typeface;
+
 import segmented_control.widget.custom.android.com.segmentedcontrol.listeners.OnSegmentClickListener;
 
 /**
@@ -87,6 +89,10 @@ public class SegmentData<D> {
 
     public int getTextSize() {
         return segmentDecoration.getTextSize();
+    }
+
+    public Typeface getTypeFace(){
+        return segmentDecoration.getTypeface();
     }
 
     public int getTextHorizontalPadding() {

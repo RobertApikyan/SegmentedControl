@@ -23,6 +23,7 @@
                 android:layout_margin="8dp"
                 app:columnCount="2"
                 app:distributeEvenly="false"
+                app:fontAssetPath="fonts/newFont.ttf"
                 app:segments="@array/segments" />
 
         </RelativeLayout>

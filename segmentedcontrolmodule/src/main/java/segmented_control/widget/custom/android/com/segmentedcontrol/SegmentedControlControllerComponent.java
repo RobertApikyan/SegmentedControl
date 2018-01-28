@@ -1,5 +1,7 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol;
 
+import android.graphics.Typeface;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -178,6 +180,10 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
 
     void setTextSize(int textSize) {
         configs.segmentDecoration.textSize = textSize;
+    }
+
+    void setTypeFace(Typeface typeFace) {
+        configs.segmentDecoration.typeface = typeFace;
     }
 
     void setTextVerticalPadding(int padding) {
