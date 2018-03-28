@@ -75,16 +75,16 @@ public abstract class SegmentViewHolder<D> extends DistributiveSectionLayout.Vie
         return segmentData.getSegmentData();
     }
 
-    public int getSelectedStockColor() {
-        return segmentData.getSelectedStockColor();
+    public int getSelectedStrokeColor() {
+        return segmentData.getSelectedStrokeColor();
     }
 
-    public int getUnSelectedStockColor() {
-        return segmentData.getUnSelectedStockColor();
+    public int getUnSelectedStrokeColor() {
+        return segmentData.getUnSelectedStrokeColor();
     }
 
-    public int getStockWidth() {
-        return segmentData.getStockWidth();
+    public int getStrokeWidth() {
+        return segmentData.getStrokeWidth();
     }
 
     public int getSelectBackgroundColor() {

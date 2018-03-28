@@ -155,16 +155,16 @@ public class Utils {
 
     /**
      *
-     * @param stockWidth, stock width
-     * @param stockColor, stock color
+     * @param strokeWidth, stroke width
+     * @param strokeColor, stroke color
      * @param argb, background color
      * @param radii, use {@link #defineRadiusForPosition(int, int, int, int, int, int, int)} method to define radii
      * @return background drawable
      */
-    public static Drawable getBackground(int stockWidth, int stockColor, int argb, float[] radii) {
+    public static Drawable getBackground(int strokeWidth, int strokeColor, int argb, float[] radii) {
         GradientDrawable drawable = new GradientDrawable();
         drawable.setShape(GradientDrawable.RECTANGLE);
-        drawable.setStroke(stockWidth, stockColor);
+        drawable.setStroke(strokeWidth, strokeColor);
         drawable.setCornerRadii(radii);
         drawable.setColor(argb);
         return drawable;

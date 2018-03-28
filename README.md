@@ -60,9 +60,9 @@
      <attr name="distributeEvenly" format="boolean" /> setDistributeEvenly(boolean)
      <attr name="columnCount" format="integer" /> setColumnCount(int)
      <attr name="segments" format="reference" /> addSegments(Object[]), addSegments(List)
-     <attr name="selectedStockColor" format="color" /> setSelectedStockColor(int)
-     <attr name="unSelectedStockColor" format="color" /> setUnSelectedStockColor(int)
-     <attr name="stockWidth" format="dimension" / setStockWidth(int)
+     <attr name="selectedStrokeColor" format="color" /> setSelectedStrokeColor(int)
+     <attr name="unSelectedStrokeColor" format="color" /> setUnSelectedStrokeColor(int)
+     <attr name="strokeWidth" format="dimension" / setStrokeWidth(int)
      <attr name="selectedBackgroundColor" format="color" /> setSelectedBackgroundColor(int)
      <attr name="unSelectedBackgroundColor" format="color" /> setUnSelectedBackgroundColor(int)
      <attr name="selectedTextColor" format="color"/> setSelectedTextColor(int)
@@ -84,7 +84,7 @@
 ### Note: After every configuration change call segmentedControl.notifyConfigIsChanged() method 
 #### Example.
 ```java
-        segmentedControl.setStockWidth(width.intValue());
+        segmentedControl.setStrokeWidth(width.intValue());
         segmentedControl.setColumnCount(columnCount);
         segmentedControl.notifyConfigIsChanged();
 ```

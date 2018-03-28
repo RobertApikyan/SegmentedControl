@@ -11,12 +11,12 @@ import android.support.v4.content.ContextCompat;
 
 public class SegmentDecoration {
     // segment decoration
-    // stock
+    // stroke
     @ColorInt
-    public int selectedStockColor;
+    public int selectedStrokeColor;
     @ColorInt
-    public int unSelectedStockColor;
-    public int stockWidth;
+    public int unSelectedStrokeColor;
+    public int strokeWidth;
     // background
     @ColorInt
     public int selectBackgroundColor;
@@ -48,27 +48,27 @@ public class SegmentDecoration {
 
     public static SegmentDecoration createDefault(Context context, int accentColor) {
         SegmentDecoration sd = new SegmentDecoration();
-        sd.selectedStockColor = accentColor;
-        sd.unSelectedStockColor = accentColor;
+        sd.selectedStrokeColor = accentColor;
+        sd.unSelectedStrokeColor = accentColor;
         sd.selectBackgroundColor = accentColor;
         sd.unSelectedBackgroundColor = ContextCompat.getColor(context, android.R.color.transparent);
         sd.selectedTextColor = ContextCompat.getColor(context, android.R.color.white);
         sd.unSelectedTextColor = accentColor;
-        sd.stockWidth = 1;
+        sd.strokeWidth = 1;
         sd.typeface = null;
         return sd;
     }
 
-    public int getSelectedStockColor() {
-        return selectedStockColor;
+    public int getSelectedStrokeColor() {
+        return selectedStrokeColor;
     }
 
-    public int getUnSelectedStockColor() {
-        return unSelectedStockColor;
+    public int getUnSelectedStrokeColor() {
+        return unSelectedStrokeColor;
     }
 
-    public int getStockWidth() {
-        return stockWidth;
+    public int getStrokeWidth() {
+        return strokeWidth;
     }
 
     public int getSelectBackgroundColor() {

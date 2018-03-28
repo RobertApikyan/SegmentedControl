@@ -4,9 +4,9 @@
         <attr name="distributeEvenly" format="boolean" />
         <attr name="columnCount" format="integer" />
         <attr name="segments" format="reference" />
-        <attr name="selectedStockColor" format="color" />
-        <attr name="unSelectedStockColor" format="color" />
-        <attr name="stockWidth" format="dimension" />
+        <attr name="selectedStrokeColor" format="color" />
+        <attr name="unSelectedStrokeColor" format="color" />
+        <attr name="strokeWidth" format="dimension" />
         <attr name="selectedBackgroundColor" format="color" />
         <attr name="unSelectedBackgroundColor" format="color" />
         <attr name="selectedTextColor" format="color"/>

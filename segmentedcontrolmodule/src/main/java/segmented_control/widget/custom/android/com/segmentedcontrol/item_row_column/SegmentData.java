@@ -59,16 +59,16 @@ public class SegmentData<D> {
         return onSegmentClickListener;
     }
 
-    public int getSelectedStockColor() {
-        return segmentDecoration.getSelectedStockColor();
+    public int getSelectedStrokeColor() {
+        return segmentDecoration.getSelectedStrokeColor();
     }
 
-    public int getUnSelectedStockColor() {
-        return segmentDecoration.getUnSelectedStockColor();
+    public int getUnSelectedStrokeColor() {
+        return segmentDecoration.getUnSelectedStrokeColor();
     }
 
-    public int getStockWidth() {
-        return segmentDecoration.getStockWidth();
+    public int getStrokeWidth() {
+        return segmentDecoration.getStrokeWidth();
     }
 
     public int getSelectBackgroundColor() {

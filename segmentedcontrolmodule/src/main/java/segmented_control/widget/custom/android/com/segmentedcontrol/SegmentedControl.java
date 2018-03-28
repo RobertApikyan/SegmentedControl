@@ -26,9 +26,9 @@ import view_component.lib_android.com.view_component.base_view.layouts.Component
  * <attr name="distributeEvenly" format="boolean" /> {@link #setDistributeEvenly(boolean)}
  * <attr name="columnCount" format="integer" /> {@link #setColumnCount(int)}
  * <attr name="segments" format="reference" /> {@link #addSegments(Object[])} {@link #addSegments(List)}
- * <attr name="selectedStockColor" format="color" /> {@link #setSelectedStockColor(int)}
- * <attr name="unSelectedStockColor" format="color" /> {@link #setUnSelectedStockColor(int)}
- * <attr name="stockWidth" format="dimension" />{@link #setStockWidth(int)}
+ * <attr name="selectedStrokeColor" format="color" /> {@link #setSelectedStrokeColor(int)}
+ * <attr name="unSelectedStrokeColor" format="color" /> {@link #setUnSelectedStrokeColor(int)}
+ * <attr name="strokeWidth" format="dimension" />{@link #setStrokeWidth(int)}
  * <attr name="selectedBackgroundColor" format="color" /> {@link #setSelectedBackgroundColor(int)}
  * <attr name="unSelectedBackgroundColor" format="color" /> {@link #setUnSelectedBackgroundColor(int)}
  * <attr name="selectedTextColor" format="color"/> {@link #setSelectedTextColor(int)}
@@ -67,9 +67,9 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         try {
             attrDistributeEvenly(typedArray);
             attrColumnCount(typedArray);
-            attrSelectedStockColor(typedArray);
-            attrUnSelectedStockColor(typedArray);
-            attrStockWidth(typedArray);
+            attrSelectedStrokeColor(typedArray);
+            attrUnSelectedStrokeColor(typedArray);
+            attrStrokeWidth(typedArray);
             attrSelectedBackgroundColor(typedArray);
             attrUnSelectedBackgroundColor(typedArray);
             attrSelectedTextColor(typedArray);
@@ -102,29 +102,29 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         }
     }
 
-    private void attrSelectedStockColor(TypedArray typedArray) {
-        obtainColorAttr(typedArray, R.styleable.SegmentedControl_selectedStockColor, new Consumer<Integer>() {
+    private void attrSelectedStrokeColor(TypedArray typedArray) {
+        obtainColorAttr(typedArray, R.styleable.SegmentedControl_selectedStrokeColor, new Consumer<Integer>() {
             @Override
             public void apply(Integer color) {
-                getControllerComponent().setSelectedStockColor(color);
+                getControllerComponent().setSelectedStrokeColor(color);
             }
         });
     }
 
-    private void attrUnSelectedStockColor(TypedArray typedArray) {
-        obtainColorAttr(typedArray, R.styleable.SegmentedControl_unSelectedStockColor, new Consumer<Integer>() {
+    private void attrUnSelectedStrokeColor(TypedArray typedArray) {
+        obtainColorAttr(typedArray, R.styleable.SegmentedControl_unSelectedStrokeColor, new Consumer<Integer>() {
             @Override
             public void apply(Integer color) {
-                getControllerComponent().setUnSelectedStockColor(color);
+                getControllerComponent().setUnSelectedStrokeColor(color);
             }
         });
     }
 
-    private void attrStockWidth(TypedArray typedArray) {
-        obtainDimensionAttr(typedArray, R.styleable.SegmentedControl_stockWidth, new Consumer<Integer>() {
+    private void attrStrokeWidth(TypedArray typedArray) {
+        obtainDimensionAttr(typedArray, R.styleable.SegmentedControl_strokeWidth, new Consumer<Integer>() {
             @Override
             public void apply(Integer width) {
-                getControllerComponent().setStockWidth(width);
+                getControllerComponent().setStrokeWidth(width);
             }
         });
     }
@@ -446,16 +446,16 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().forEachSegment(segmentConsumer);
     }
 
-    public void setSelectedStockColor(int color) {
-        getControllerComponent().setSelectedStockColor(color);
+    public void setSelectedStrokeColor(int color) {
+        getControllerComponent().setSelectedStrokeColor(color);
     }
 
-    public void setUnSelectedStockColor(int color) {
-        getControllerComponent().setUnSelectedStockColor(color);
+    public void setUnSelectedStrokeColor(int color) {
+        getControllerComponent().setUnSelectedStrokeColor(color);
     }
 
-    public void setStockWidth(int width) {
-        getControllerComponent().setStockWidth(width);
+    public void setStrokeWidth(int width) {
+        getControllerComponent().setStrokeWidth(width);
     }
 
     public void setSelectedBackgroundColor(int color) {

@@ -150,16 +150,16 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         configs.segmentDecoration = SegmentDecoration.createDefault(getContext(), color);
     }
 
-    void setSelectedStockColor(int color) {
-        configs.segmentDecoration.selectedStockColor = color;
+    void setSelectedStrokeColor(int color) {
+        configs.segmentDecoration.selectedStrokeColor = color;
     }
 
-    void setUnSelectedStockColor(int color) {
-        configs.segmentDecoration.unSelectedStockColor = color;
+    void setUnSelectedStrokeColor(int color) {
+        configs.segmentDecoration.unSelectedStrokeColor = color;
     }
 
-    void setStockWidth(int width) {
-        configs.segmentDecoration.stockWidth = width;
+    void setStrokeWidth(int width) {
+        configs.segmentDecoration.strokeWidth = width;
     }
 
     void setSelectedBackgroundColor(int color) {

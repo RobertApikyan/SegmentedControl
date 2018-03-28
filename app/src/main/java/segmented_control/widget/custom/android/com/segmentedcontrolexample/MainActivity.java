@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RangeVariableMethod(minValue = 1, maxValue = 4, initialValue = 2)
-    public void setStockWidth(Float width) {
-        segmentedControl.setStockWidth(width.intValue());
+    public void setStrokeWidth(Float width) {
+        segmentedControl.setStrokeWidth(width.intValue());
         segmentedControl.notifyConfigIsChanged();
     }
 
@@ -132,14 +132,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @ColorListVariableMethod(limitedToValues = {-49023, -13615201, -12627531, -8875876, -10011977, -328966, -16739862, -16738680, -15138817})
-    public void setSelectedStockColor(Integer color) {
-        segmentedControl.setSelectedStockColor(color);
+    public void setSelectedStrokeColor(Integer color) {
+        segmentedControl.setSelectedStrokeColor(color);
         segmentedControl.notifyConfigIsChanged();
     }
 
     @ColorListVariableMethod(limitedToValues = {-49023, -13615201, -12627531, -8875876, -10011977, -328966, -16739862, -16738680, -15138817})
-    public void setUnSelectedStockColor(Integer color) {
-        segmentedControl.setUnSelectedStockColor(color);
+    public void setUnSelectedStrokeColor(Integer color) {
+        segmentedControl.setUnSelectedStrokeColor(color);
         segmentedControl.notifyConfigIsChanged();
     }
 
@@ -174,13 +174,13 @@ public class MainActivity extends AppCompatActivity {
         setTextSize(40f);
         setTextVerticalPadding(20f);
         setTextHorizontalPadding(0f);
-        setStockWidth(2f);
+        setStrokeWidth(2f);
         setSegmentVerticalMargin(0f);
         setSegmentHorizontalMargin(0f);
         setRadiusForEverySegment(false);
         setRadius(30f);
-        setSelectedStockColor(-49023);
-        setUnSelectedStockColor(-49023);
+        setSelectedStrokeColor(-49023);
+        setUnSelectedStrokeColor(-49023);
         setSelectedBackgroundColor(-49023);
         setUnSelectedBackgroundColor(-328966);
         setSelectedTextColor(-328966);

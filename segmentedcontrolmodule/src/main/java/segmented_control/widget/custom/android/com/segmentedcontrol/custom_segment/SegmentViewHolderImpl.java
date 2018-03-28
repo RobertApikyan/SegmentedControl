@@ -56,11 +56,11 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     }
 
     private Drawable getSelectedBackground() {
-        return getBackground(getStockWidth(), getSelectedStockColor(), getSelectBackgroundColor(), radius);
+        return getBackground(getStrokeWidth(), getSelectedStrokeColor(), getSelectBackgroundColor(), radius);
     }
 
     private Drawable getUnSelectedBackground() {
-        return getBackground(getStockWidth(), getUnSelectedStockColor(), getUnSelectedBackgroundColor(), radius);
+        return getBackground(getStrokeWidth(), getUnSelectedStrokeColor(), getUnSelectedBackgroundColor(), radius);
     }
 
     private void setSectionDecorationSelected(boolean isSelected) {
