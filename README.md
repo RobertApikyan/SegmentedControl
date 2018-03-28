@@ -35,7 +35,7 @@
 ### Add dependency to app module level build.gradle
 ```groovy
     dependencies {
-	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0.1'
+	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0.2'
 	}
 ```
  
