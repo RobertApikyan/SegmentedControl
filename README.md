@@ -1,5 +1,5 @@
 # Android SegmentedControl + multi row support 
-##(API 16+)
+### minSdk API 16+
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
@@ -23,6 +23,7 @@
 
 
 ## Download
+### Gradle 
 ### Add to project level build.gradle
 ```groovy
     allprojects {
@@ -35,9 +36,27 @@
 ### Add dependency to app module level build.gradle
 ```groovy
     dependencies {
-	        compile 'com.github.RobertApikyan:SegmentedControl:release_1.0.2'
+	        implementation 'com.github.RobertApikyan:SegmentedControl:1.0.4''
 	}
 ```
+### Maven
+```xml
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+### Add dependency
+```xml
+	ø<dependency>
+	    <groupId>com.github.RobertApikyan</groupId>
+	    <artifactId>SegmentedControl</artifactId>
+	    <version>1.0.4</version>
+	</dependency>ø
+```
+
  
 ### Done.
 
