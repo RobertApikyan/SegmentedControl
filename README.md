@@ -24,7 +24,7 @@
 
 ## Download
 ### Gradle 
-### Add to project level build.gradle
+#### Add to project level build.gradle
 ```groovy
     allprojects {
 		repositories {
@@ -33,7 +33,7 @@
 		}
 	}
 ```
-### Add dependency to app module level build.gradle
+#### Add dependency to app module level build.gradle
 ```groovy
     dependencies {
 	        implementation 'com.github.RobertApikyan:SegmentedControl:1.0.4''
@@ -48,9 +48,9 @@
 		</repository>
 	</repositories>
 ```
-### Add dependency
+#### Add dependency
 ```xml
-	ø<dependency>
+	<dependency>
 	    <groupId>com.github.RobertApikyan</groupId>
 	    <artifactId>SegmentedControl</artifactId>
 	    <version>1.0.4</version>
