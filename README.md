@@ -1,13 +1,13 @@
 # Android SegmentedControl + multi row support 
 ### minSdk API 14+
 
-[![](https://jitpack.io/v/RobertApikyan/SegmentedControl.svg)](https://jitpack.io/#RobertApikyan/SegmentedControl)
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
 [Demo App, Play store link](https://play.google.com/store/apps/details?id=segmented_control.widget.custom.android.com.segmentedcontrolexample&hl=en)
 
 [Or try demo App online !](https://appetize.io/app/y4e91xhxgp47956bf73da4z4yg)
 
+[![](https://jitpack.io/v/RobertApikyan/SegmentedControl.svg)](https://jitpack.io/#RobertApikyan/SegmentedControl)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Segmented control for android, with a lot of customization properties
