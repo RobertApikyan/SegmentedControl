@@ -524,6 +524,23 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     }
 
     /**
+     * Removes the last selected segment selection, SegmentViewHolder's onSegmentSelected  method will be called
+     * with isSelected = false, isReselected = false
+     */
+    public void clearSelection(){
+        getControllerComponent().clearSelection(false);
+    }
+
+    /**
+     * Removes the last selected segment selection, SegmentViewHolder's onSegmentSelected  method will be called
+     * with isSelected = false, isReselected = false.
+     * @param notifySegmentSelectedListener if true SegmentSelectedListeners will be notified.
+     */
+    public void clearSelection(boolean notifySegmentSelectedListener){
+        getControllerComponent().clearSelection(notifySegmentSelectedListener);
+    }
+
+    /**
      * Call this method after every configuration change
      * setColumnCount, setRadius et...
      */

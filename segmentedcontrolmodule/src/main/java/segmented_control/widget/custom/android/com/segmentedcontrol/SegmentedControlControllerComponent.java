@@ -91,9 +91,25 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
     }
 
     void notifyConfigIsChanged() {
+        recreate(false);
+    }
+
+    public void clearSelection(boolean notifySegmentSelectedListener) {
+        if (lastClickedSegmentViewHolder != null) {
+            lastClickedSegmentViewHolder.setSelected(false);
+
+            if (notifySegmentSelectedListener) {
+                notifier.onSegmentSelected(lastClickedSegmentViewHolder, false, false);
+            }
+
+            lastClickedSegmentViewHolder = null;
+        }
+    }
+
+    private void recreate(boolean removeLastSelected) {
         if (dataList.size() == 0) return;
         List<D> itemsData = new ArrayList<>(dataList);
-        removeAllSegments(false);
+        removeAllSegments(removeLastSelected);
         addSegments(itemsData);
         if (lastClickedSegmentViewHolder != null) {
             setSelectedSegment(lastClickedSegmentViewHolder.getAbsolutePosition());
