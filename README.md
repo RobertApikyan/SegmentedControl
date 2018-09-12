@@ -37,7 +37,7 @@
 #### Add dependency to app module level build.gradle
 ```groovy
     dependencies {
-	        implementation 'com.github.RobertApikyan:SegmentedControl:1.0.4'
+	        implementation 'com.github.RobertApikyan:SegmentedControl:1.0.5'
 	}
 ```
 ### Maven
@@ -54,7 +54,7 @@
 	<dependency>
 	    <groupId>com.github.RobertApikyan</groupId>
 	    <artifactId>SegmentedControl</artifactId>
-	    <version>1.0.4</version>
+	    <version>1.0.5</version>
 	</dependency>ø
 ```
 
