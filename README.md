@@ -10,7 +10,7 @@
 [![](https://jitpack.io/v/RobertApikyan/SegmentedControl.svg)](https://jitpack.io/#RobertApikyan/SegmentedControl)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Segmented control for android, with a lot of customization properties
+## Segmented control for Android, with a lot of customization properties
 
 <img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" width="300" height="525" />
 
@@ -25,37 +25,37 @@
 
 ## Download
 ### Gradle 
-#### Add to project level build.gradle
+Add to project level build.gradle
 ```groovy
-    allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
-#### Add dependency to app module level build.gradle
+Add dependency to app module level build.gradle
 ```groovy
-    dependencies {
-	        implementation 'com.github.RobertApikyan:SegmentedControl:1.0.5'
-	}
+dependencies {
+    implementation 'com.github.RobertApikyan:SegmentedControl:1.0.5'
+}
 ```
 ### Maven
 ```xml
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+<repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+</repositories>
 ```
-#### Add dependency
+Add dependency
 ```xml
-	<dependency>
-	    <groupId>com.github.RobertApikyan</groupId>
-	    <artifactId>SegmentedControl</artifactId>
-	    <version>1.0.5</version>
-	</dependency>ø
+<dependency>
+    <groupId>com.github.RobertApikyan</groupId>
+    <artifactId>SegmentedControl</artifactId>
+    <version>1.0.5</version>
+</dependency>
 ```
 
  
@@ -75,7 +75,7 @@
                 app:segments="@array/your_array_data" />
 ```
 
-# Attributes 
+Attributes 
 ```xml
      <attr name="distributeEvenly" format="boolean" /> setDistributeEvenly(boolean)
      <attr name="columnCount" format="integer" /> setColumnCount(int)
@@ -101,8 +101,9 @@
      <attr name="fontAssetPath" format="string"/>  setTypeFace(TypeFace)
 ```
         
-### Note: After every configuration change call segmentedControl.notifyConfigIsChanged() method 
-#### Example.
+**Note:** After every configuration change call segmentedControl.notifyConfigIsChanged() method 
+
+# Example
 ```java
         segmentedControl.setStrokeWidth(width.intValue());
         segmentedControl.setColumnCount(columnCount);
@@ -110,8 +111,9 @@
 ```
 
 > SegmentedControl uses SegmentAdapter and SegmentViewHolder for displaying segments. There are allready exist a default implementations for SegmentAdapter (SegmentAdapterImpl) and SegmentViewHolder (SegmentViewHolderImpl), but if you want to make your custom implementation... well here is the steps 
-### 1. define segment_item.xml inside layouts folder
-```xml
+
+1. Define `segment_item.xml` inside `layouts` folder
+    ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -128,10 +130,10 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp" />
     </LinearLayout>
-```
+    ```
 
-### 2. Craete SegmentViewHolder instance AppSegmentViewHolder (here I define the segment generic data type as a String)
-```java
+2. Create a `SegmentViewHolder` instance (`AppSegmentViewHolder`) (here I define the segment generic data type as a String)
+    ```java
     public class AppSegmentViewHolder extends SegmentViewHolder<String> {
         TextView textView;
     
@@ -145,9 +147,10 @@
             textView.setText(segmentData);
         }
     }
-```
-### 3. Create SegmentAdapter instance 
-```java
+    ```
+
+3. Create a `SegmentAdapter` instance 
+    ```java
     public class AppSegmentAdapter extends SegmentAdapter<String, AppSegmentViewHolder> {
 
         @NonNull
@@ -156,18 +159,21 @@
             return new AppSegmentViewHolder(layoutInflater.inflate(R.layout.item_segment, null));
         }
     }
-```
-### 4. Pass the adapter to the segmentedControl
-```java
+    ```
+
+4. Pass the adapter to the segmentedControl
+    ```java
     segmentedControl = (SegmentedControl) findViewById(R.id.segmented_control);
     segmentedControl.setAdapter(new AppSegmentAdapter());
-```
-### 5.Finally add segements data. 
-```java
+    ```
+    
+5. Finally add segments data. 
+    ```java
     segmentedControl.addSegments(getResources().getStringArray(R.array.segments));
-```
-### Thatas it ) 
-### For custom implementation use SegmentedControlUtils helper class in order to define segment background type and background radius.
+    ```
+That's it :)
+
+For custom implementation use `SegmentedControlUtils` helper class in order to define segment background type and background radius.
 
 [![View Robert Apikyan profile on LinkedIn](https://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png)](https://www.linkedin.com/in/robert-apikyan-24b915130/)
 
