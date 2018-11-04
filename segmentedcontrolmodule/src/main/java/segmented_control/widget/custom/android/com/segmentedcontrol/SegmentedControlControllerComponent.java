@@ -186,6 +186,10 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         configs.segmentDecoration.unSelectedBackgroundColor = color;
     }
 
+    void setFocusedBackgroundColor(int color){
+        configs.segmentDecoration.focusedBackgroundColor = color;
+    }
+
     void setSelectedTextColor(int color) {
         configs.segmentDecoration.selectedTextColor = color;
     }

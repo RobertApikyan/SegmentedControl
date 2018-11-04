@@ -79,6 +79,10 @@ public class SegmentData<D> {
         return segmentDecoration.getUnSelectedBackgroundColor();
     }
 
+    public int getFocusedBackgroundColor(){
+        return segmentDecoration.getFocusedBackgroundColor();
+    }
+
     public int getSelectedTextColor() {
         return segmentDecoration.getSelectedTextColor();
     }

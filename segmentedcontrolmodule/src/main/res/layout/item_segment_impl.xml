@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_segment_tv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center" />
+<TextView
+android:id="@+id/item_segment_tv"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="center" />
 
-</FrameLayout>
+    </FrameLayout>

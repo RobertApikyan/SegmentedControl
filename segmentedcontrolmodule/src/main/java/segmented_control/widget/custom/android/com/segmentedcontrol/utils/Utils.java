@@ -1,8 +1,11 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol.utils;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.IntRange;
+import android.view.View;
 
 import segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column.SegmentBackgroundType;
 import segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column.SegmentViewHolder;
@@ -168,5 +171,9 @@ public class Utils {
         drawable.setCornerRadii(radii);
         drawable.setColor(argb);
         return drawable;
+    }
+
+    public static ValueAnimator createBackgroundAnimation(int argbStart,int argbEnd){
+        return ValueAnimator.ofObject(ArgbEvaluator.getInstance(),argbStart, argbEnd);
     }
 }

@@ -22,6 +22,8 @@ public class SegmentDecoration {
     public int selectBackgroundColor;
     @ColorInt
     public int unSelectedBackgroundColor;
+    // focused segment background
+    public int focusedBackgroundColor;
     // text
     @ColorInt
     public int selectedTextColor;
@@ -77,6 +79,10 @@ public class SegmentDecoration {
 
     public int getUnSelectedBackgroundColor() {
         return unSelectedBackgroundColor;
+    }
+
+    public int getFocusedBackgroundColor(){
+        return focusedBackgroundColor;
     }
 
     public int getSelectedTextColor() {

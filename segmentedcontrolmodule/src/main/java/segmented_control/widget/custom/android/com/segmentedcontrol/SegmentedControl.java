@@ -71,6 +71,7 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
             attrUnSelectedStrokeColor(typedArray);
             attrStrokeWidth(typedArray);
             attrSelectedBackgroundColor(typedArray);
+            attrFocusedBackgroundColor(typedArray);
             attrUnSelectedBackgroundColor(typedArray);
             attrSelectedTextColor(typedArray);
             attrUnSelectedTextColor(typedArray);
@@ -140,6 +141,15 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
 
     private void attrUnSelectedBackgroundColor(TypedArray typedArray) {
         obtainColorAttr(typedArray, R.styleable.SegmentedControl_unSelectedBackgroundColor, new Consumer<Integer>() {
+            @Override
+            public void apply(Integer color) {
+                getControllerComponent().setUnSelectedBackgroundColor(color);
+            }
+        });
+    }
+
+    private void attrFocusedBackgroundColor(TypedArray typedArray) {
+        obtainColorAttr(typedArray, R.styleable.SegmentedControl_focusedBackgroundColor, new Consumer<Integer>() {
             @Override
             public void apply(Integer color) {
                 getControllerComponent().setUnSelectedBackgroundColor(color);
