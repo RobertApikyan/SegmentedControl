@@ -30,7 +30,8 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
             int colorArgb = (int) animation.getAnimatedValue();
-            getBackground(getStrokeWidth(), getUnSelectedStrokeColor(), colorArgb, radius);
+            Drawable bg = getBackground(getStrokeWidth(), getUnSelectedStrokeColor(), colorArgb, radius);
+            setBackground(bg);
         }
     };
 
