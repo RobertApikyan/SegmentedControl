@@ -117,6 +117,6 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     }
 
     private boolean hasBackground() {
-        return itemTV.getBackground() == null;
+        return itemTV.getBackground() != null;
     }
 }
