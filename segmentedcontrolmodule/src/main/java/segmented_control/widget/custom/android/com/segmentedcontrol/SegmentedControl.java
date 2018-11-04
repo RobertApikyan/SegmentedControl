@@ -152,7 +152,7 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         obtainColorAttr(typedArray, R.styleable.SegmentedControl_focusedBackgroundColor, new Consumer<Integer>() {
             @Override
             public void apply(Integer color) {
-                getControllerComponent().setUnSelectedBackgroundColor(color);
+                getControllerComponent().setFocusedBackgroundColor(color);
             }
         });
     }
