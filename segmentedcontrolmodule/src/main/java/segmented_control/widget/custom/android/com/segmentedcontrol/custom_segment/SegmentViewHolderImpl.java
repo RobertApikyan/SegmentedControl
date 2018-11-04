@@ -76,7 +76,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     }
 
     private void setSectionDecorationSelected(boolean isSelected) {
-        if (!hasBackground()) {
+        if (hasBackground()) {
             animateNewBackground(isSelected);
         } else {
             setNewBackground(isSelected);

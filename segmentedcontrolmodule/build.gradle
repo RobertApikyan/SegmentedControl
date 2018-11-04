@@ -27,3 +27,12 @@ dependencies {
     implementation 'com.github.RobertApikyan:ViewComponent:0.0.2'
     implementation 'com.github.RobertApikyan:SectionLayout:Beta_0.2'
 }
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
