@@ -38,15 +38,18 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         }
     };
 
+    @SuppressWarnings("FieldCanBeLocal")
+    @SuppressLint("ClickableViewAccessibility")
     private final View.OnTouchListener segmentTouchListener = new View.OnTouchListener() {
-        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 setBackground(getFocusedBackground());
             }
             if (event.getAction() == MotionEvent.ACTION_UP ||
-                    event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    event.getAction() == MotionEvent.ACTION_CANCEL ||
+                    event.getAction() == MotionEvent.ACTION_POINTER_UP ||
+                    event.getAction() == MotionEvent.ACTION_OUTSIDE) {
                 setBackground(isSelected() ? getSelectedBackground() : getUnSelectedBackground());
             }
             return false;
@@ -116,7 +119,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         }
 
         // animate
-        int startColor = isSelected ? getUnSelectedBackgroundColor() : getSelectBackgroundColor();
+        int startColor = isSelected ? getFocusedBackgroundColor() : getSelectBackgroundColor();
         int endColor = isSelected ? getSelectBackgroundColor() : getUnSelectedBackgroundColor();
 
         va = createBackgroundAnimation(startColor, endColor);
