@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import segmented_control.widget.custom.android.com.segmented_control.R;
+import segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl;
 import segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column.SegmentViewHolder;
 
 import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.createBackgroundAnimation;
@@ -43,13 +45,18 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     private final View.OnTouchListener segmentTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+            if (isSelected()) {
+                return false;
+            }
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 setBackground(getFocusedBackground());
+                Log.d("SegmentViewHolderImpl", "ACTION_DOWN");
             }
             if (event.getAction() == MotionEvent.ACTION_UP ||
                     event.getAction() == MotionEvent.ACTION_CANCEL ||
                     event.getAction() == MotionEvent.ACTION_POINTER_UP ||
                     event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                Log.d("SegmentViewHolderImpl", "ACTION_DOWN");
                 setBackground(isSelected() ? getSelectedBackground() : getUnSelectedBackground());
             }
             return false;
