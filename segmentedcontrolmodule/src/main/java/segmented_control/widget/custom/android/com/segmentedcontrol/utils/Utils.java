@@ -176,8 +176,8 @@ public class Utils {
         return ValueAnimator.ofObject(ArgbEvaluator.getInstance(), argbStart, argbEnd);
     }
 
-    public static boolean isInViewBounds(float touchX, float touchY, View view){
-        return touchX >= view.getX() && touchX <= view.getX()+view.getMeasuredWidth() && // in x bounds
-                touchY >= view.getY() && touchY <=view.getY() + view.getMeasuredHeight();
+    public static boolean isInBounds(float touchX, float touchY, float viewX, float viewY, float viewW, float viewH) {
+        return touchX >= viewX && touchX <= viewX + viewW && // in x bounds
+                touchY >= viewY && touchY <= viewY + viewH;
     }
 }

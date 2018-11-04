@@ -18,7 +18,7 @@ import static segmented_control.widget.custom.android.com.segmentedcontrol.utils
 import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.createRadius;
 import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.defineRadiusForPosition;
 import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.getBackground;
-import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.isInViewBounds;
+import static segmented_control.widget.custom.android.com.segmentedcontrol.utils.Utils.isInBounds;
 
 /**
  * Created by Robert Apikyan on 9/8/2017.
@@ -29,6 +29,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     private TextView itemTV;
     private float[] radius;
     private ValueAnimator va;
+    private int[] windowLocation;
 
     private final ValueAnimator.AnimatorUpdateListener bgAnimListener = new ValueAnimator.AnimatorUpdateListener() {
         @Override
@@ -55,7 +56,9 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
                     event.getAction() == MotionEvent.ACTION_POINTER_UP ||
                     event.getAction() == MotionEvent.ACTION_OUTSIDE) {
 
-                if (!isInViewBounds(event.getX(), event.getY(), getSectionView())) {
+                if (!isInBounds(event.getX(), event.getY(), windowLocation[0], windowLocation[1],
+                        getSectionView().getMeasuredWidth(), getSectionView().getMeasuredHeight())) {
+
                     setBackground(isSelected() ? getSelectedBackground() : getUnSelectedBackground());
                 }
             }
@@ -72,6 +75,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
 
     @Override
     protected void onSegmentBind(CharSequence segmentData) {
+        initScreenLocation();
         itemTV.setText(segmentData);
         if (isRadiusForEverySegment()) {
             radius = createRadius(getTopLeftRadius(), getTopRightRadius(), getBottomRightRadius(), getBottomLeftRadius());
@@ -85,6 +89,11 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         }
         itemTV.setPadding(getTextHorizontalPadding(), getTextVerticalPadding(), getTextHorizontalPadding(), getTextVerticalPadding());
         ViewGroup.MarginLayoutParams.class.cast(itemTV.getLayoutParams()).setMargins(getSegmentHorizontalMargin(), getSegmentVerticalMargin(), getSegmentHorizontalMargin(), getSegmentVerticalMargin());
+    }
+
+    private void initScreenLocation() {
+        windowLocation = new int[2];
+        getSectionView().getLocationOnScreen(windowLocation);
     }
 
     @Override
