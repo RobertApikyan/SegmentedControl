@@ -1,10 +1,12 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol.custom_segment;
 
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     private TextView itemTV;
     private float[] radius;
     private ValueAnimator va;
+
     private final ValueAnimator.AnimatorUpdateListener bgAnimListener = new ValueAnimator.AnimatorUpdateListener() {
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
@@ -35,10 +38,26 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         }
     };
 
+    private final View.OnTouchListener segmentTouchListener = new View.OnTouchListener() {
+        @SuppressLint("ClickableViewAccessibility")
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                setBackground(getFocusedBackground());
+            }
+            if (event.getAction() == MotionEvent.ACTION_UP ||
+                    event.getAction() == MotionEvent.ACTION_CANCEL) {
+                setBackground(isSelected() ? getSelectedBackground() : getUnSelectedBackground());
+            }
+            return false;
+        }
+    };
 
+    @SuppressLint("ClickableViewAccessibility")
     public SegmentViewHolderImpl(@NonNull View sectionView) {
         super(sectionView);
         itemTV = sectionView.findViewById(R.id.item_segment_tv);
+        itemTV.setOnTouchListener(segmentTouchListener);
     }
 
     @Override
@@ -49,7 +68,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         } else {
             radius = defineRadiusForPosition(getAbsolutePosition(), getColumnCount(), getCurrentSize(), getTopLeftRadius(), getTopRightRadius(), getBottomRightRadius(), getBottomLeftRadius());
         }
-        setSectionDecorationSelected(false);
+        setSectionDecorationSelected(false, false);
         itemTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, getTextSize());
         if (getTypeFace() != null) {
             itemTV.setTypeface(getTypeFace());
@@ -61,11 +80,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     @Override
     public void onSegmentSelected(boolean isSelected, boolean isReselected) {
         super.onSegmentSelected(isSelected, isReselected);
-        if (isSelected) {
-            setSectionDecorationSelected(true);
-        } else {
-            setSectionDecorationSelected(false);
-        }
+        setSectionDecorationSelected(isSelected, isReselected);
     }
 
     private Drawable getSelectedBackground() {
@@ -76,15 +91,25 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         return getBackground(getStrokeWidth(), getUnSelectedStrokeColor(), getUnSelectedBackgroundColor(), radius);
     }
 
-    private void setSectionDecorationSelected(boolean isSelected) {
+    private Drawable getFocusedBackground() {
+        return getBackground(getStrokeWidth(), isSelected() ? getSelectedStrokeColor() : getUnSelectedStrokeColor(), getFocusedBackgroundColor(), radius);
+    }
+
+    private void setSectionDecorationSelected(boolean isSelected, boolean isReselected) {
+        if (isReselected)
+            return;
+
         if (hasBackground()) {
             animateNewBackground(isSelected);
         } else {
-            setNewBackground(isSelected);
+            setBackground(isSelected ? getSelectedBackground() : getUnSelectedBackground());
         }
+
+        itemTV.setTextColor(isSelected ? getSelectedTextColor() : getUnSelectedTextColor());
     }
 
     private void animateNewBackground(boolean isSelected) {
+
         if (va != null) {
             va.end();
             va.removeUpdateListener(bgAnimListener);
@@ -101,11 +126,6 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         va.setDuration(ANIM_DURATION);
 
         va.start();
-    }
-
-    private void setNewBackground(boolean isSelected) {
-        setBackground(isSelected ? getSelectedBackground() : getUnSelectedBackground());
-        itemTV.setTextColor(isSelected ? getSelectedTextColor() : getUnSelectedTextColor());
     }
 
     private void setBackground(Drawable drawable) {

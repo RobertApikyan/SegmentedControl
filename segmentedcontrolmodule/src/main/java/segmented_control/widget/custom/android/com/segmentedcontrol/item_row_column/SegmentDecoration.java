@@ -54,6 +54,7 @@ public class SegmentDecoration {
         sd.unSelectedStrokeColor = accentColor;
         sd.selectBackgroundColor = accentColor;
         sd.unSelectedBackgroundColor = ContextCompat.getColor(context, android.R.color.transparent);
+        sd.focusedBackgroundColor = ContextCompat.getColor(context,android.R.color.transparent);
         sd.selectedTextColor = ContextCompat.getColor(context, android.R.color.white);
         sd.unSelectedTextColor = accentColor;
         sd.strokeWidth = 1;
