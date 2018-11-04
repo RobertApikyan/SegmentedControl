@@ -51,8 +51,8 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 setBackground(getFocusedBackground());
                 Log.d("SegmentViewHolderImpl", "ACTION_DOWN");
-            }
-            if (event.getAction() == MotionEvent.ACTION_UP ||
+
+            } else if (event.getAction() == MotionEvent.ACTION_UP ||
                     event.getAction() == MotionEvent.ACTION_CANCEL ||
                     event.getAction() == MotionEvent.ACTION_POINTER_UP ||
                     event.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -67,7 +67,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
     public SegmentViewHolderImpl(@NonNull View sectionView) {
         super(sectionView);
         itemTV = sectionView.findViewById(R.id.item_segment_tv);
-        itemTV.setOnTouchListener(segmentTouchListener);
+        sectionView.setOnTouchListener(segmentTouchListener);
     }
 
     @Override
