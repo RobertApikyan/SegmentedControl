@@ -157,11 +157,10 @@ public class Utils {
     }
 
     /**
-     *
      * @param strokeWidth, stroke width
      * @param strokeColor, stroke color
-     * @param argb, background color
-     * @param radii, use {@link #defineRadiusForPosition(int, int, int, int, int, int, int)} method to define radii
+     * @param argb,        background color
+     * @param radii,       use {@link #defineRadiusForPosition(int, int, int, int, int, int, int)} method to define radii
      * @return background drawable
      */
     public static Drawable getBackground(int strokeWidth, int strokeColor, int argb, float[] radii) {
@@ -173,7 +172,12 @@ public class Utils {
         return drawable;
     }
 
-    public static ValueAnimator createBackgroundAnimation(int argbStart,int argbEnd){
-        return ValueAnimator.ofObject(ArgbEvaluator.getInstance(),argbStart, argbEnd);
+    public static ValueAnimator createBackgroundAnimation(int argbStart, int argbEnd) {
+        return ValueAnimator.ofObject(ArgbEvaluator.getInstance(), argbStart, argbEnd);
+    }
+
+    public static boolean isInViewBounds(float touchX, float touchY, View view){
+        return touchX >= view.getX() && touchX <= view.getX()+view.getMeasuredWidth() && // in x bounds
+                touchY >= view.getY() && touchY <=view.getY() + view.getMeasuredHeight();
     }
 }
