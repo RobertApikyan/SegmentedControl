@@ -37,7 +37,7 @@ allprojects {
 Add dependency to app module level build.gradle
 ```groovy
 dependencies {
-    implementation 'com.github.RobertApikyan:SegmentedControl:1.0.5'
+    implementation 'com.github.RobertApikyan:SegmentedControl:1.0.8'
 }
 ```
 ### Maven
@@ -54,7 +54,7 @@ Add dependency
 <dependency>
     <groupId>com.github.RobertApikyan</groupId>
     <artifactId>SegmentedControl</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -88,6 +88,8 @@ Attributes
      <attr name="selectedTextColor" format="color"/> setSelectedTextColor(int)
      <attr name="unSelectedTextColor" format="color"/> setUnSelectedTextColor(int)
      <attr name="textSize" format="dimension"/> setTextSize(int)
+     <attr name="selectionAnimationDuration" format="integer"/>
+     <attr name="focusedBackgroundColor" format="color"/>
      <attr name="textHorizontalPadding" format="dimension"/> setTextHorizontalPadding(int)
      <attr name="textVerticalPadding" format="dimension"/> setTextVerticalPadding(int)
      <attr name="segmentVerticalMargin" format="dimension"/> setSegmentVerticalMargin(int)
