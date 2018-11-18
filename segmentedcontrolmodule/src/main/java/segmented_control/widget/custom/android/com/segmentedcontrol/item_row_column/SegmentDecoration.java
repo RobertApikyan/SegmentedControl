@@ -1,6 +1,7 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +11,9 @@ import android.support.v4.content.ContextCompat;
  */
 
 public class SegmentDecoration {
+    public static final int DEFAULT_FOCUSED_BACKGROUND_ALPHA = 36;
+    public static final int DEFAULT_SELECTION_ANIMATION_DURATION = 196;
+
     // segment decoration
     // stroke
     @ColorInt
@@ -24,6 +28,8 @@ public class SegmentDecoration {
     public int unSelectedBackgroundColor;
     // focused segment background
     public int focusedBackgroundColor;
+    // selection Animation Duration
+    public int selectionAnimationDuration;
     // text
     @ColorInt
     public int selectedTextColor;
@@ -54,7 +60,11 @@ public class SegmentDecoration {
         sd.unSelectedStrokeColor = accentColor;
         sd.selectBackgroundColor = accentColor;
         sd.unSelectedBackgroundColor = ContextCompat.getColor(context, android.R.color.transparent);
-        sd.focusedBackgroundColor = ContextCompat.getColor(context,android.R.color.transparent);
+        sd.focusedBackgroundColor = Color.argb(DEFAULT_FOCUSED_BACKGROUND_ALPHA,
+                Color.red(accentColor),
+                Color.green(accentColor),
+                Color.blue(accentColor));
+        sd.selectionAnimationDuration = DEFAULT_SELECTION_ANIMATION_DURATION;
         sd.selectedTextColor = ContextCompat.getColor(context, android.R.color.white);
         sd.unSelectedTextColor = accentColor;
         sd.strokeWidth = 1;
@@ -82,8 +92,12 @@ public class SegmentDecoration {
         return unSelectedBackgroundColor;
     }
 
-    public int getFocusedBackgroundColor(){
+    public int getFocusedBackgroundColor() {
         return focusedBackgroundColor;
+    }
+
+    public int getSelectionAnimationDuration() {
+        return selectionAnimationDuration;
     }
 
     public int getSelectedTextColor() {
@@ -134,5 +148,9 @@ public class SegmentDecoration {
         return radiusForEverySegment;
     }
 
-    public Typeface getTypeface(){return typeface;};
+    public Typeface getTypeface() {
+        return typeface;
+    }
+
+    ;
 }

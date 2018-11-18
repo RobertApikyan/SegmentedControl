@@ -25,7 +25,7 @@ import static segmented_control.widget.custom.android.com.segmentedcontrol.utils
  */
 
 public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
-    private static final int ANIM_DURATION = 300;
+
     private TextView itemTV;
     private float[] radius;
     private ValueAnimator va;
@@ -35,14 +35,14 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
             int colorArgb = (int) animation.getAnimatedValue();
-            Drawable bg = getBackground(getStrokeWidth(), getUnSelectedStrokeColor(), colorArgb, radius);
+            Drawable bg = getBackground(getStrokeWidth(), isSelected() ? getSelectedStrokeColor() : getUnSelectedStrokeColor(), colorArgb, radius);
             setBackground(bg);
         }
     };
 
     @SuppressWarnings("FieldCanBeLocal")
-    @SuppressLint("ClickableViewAccessibility")
     private final View.OnTouchListener segmentTouchListener = new View.OnTouchListener() {
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if (isSelected()) {
@@ -66,7 +66,6 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
         }
     };
 
-    @SuppressLint("ClickableViewAccessibility")
     public SegmentViewHolderImpl(@NonNull View sectionView) {
         super(sectionView);
         itemTV = sectionView.findViewById(R.id.item_segment_tv);
@@ -142,7 +141,7 @@ public class SegmentViewHolderImpl extends SegmentViewHolder<CharSequence> {
 
         va.addUpdateListener(bgAnimListener);
 
-        va.setDuration(ANIM_DURATION);
+        va.setDuration(getSelectionAnimationDuration());
 
         va.start();
     }

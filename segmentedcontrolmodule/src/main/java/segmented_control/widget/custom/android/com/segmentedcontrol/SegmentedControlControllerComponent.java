@@ -190,6 +190,10 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         configs.segmentDecoration.focusedBackgroundColor = color;
     }
 
+    void setSelectionAnimationDuration(int duration){
+        configs.segmentDecoration.selectionAnimationDuration = duration;
+    }
+
     void setSelectedTextColor(int color) {
         configs.segmentDecoration.selectedTextColor = color;
     }

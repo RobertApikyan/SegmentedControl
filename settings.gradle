@@ -1,1 +1,1 @@
-include ':app', ':segmentedcontrolmodule'
+include ':app', ':segmentedcontrolmodule', ':demo'

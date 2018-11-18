@@ -20,6 +20,8 @@ import segmented_control.widget.custom.android.com.segmentedcontrol.listeners.On
 import segmented_control.widget.custom.android.com.segmentedcontrol.listeners.OnSegmentSelectedListener;
 import view_component.lib_android.com.view_component.base_view.layouts.ComponentFrameLayout;
 
+import static segmented_control.widget.custom.android.com.segmentedcontrol.item_row_column.SegmentDecoration.DEFAULT_SELECTION_ANIMATION_DURATION;
+
 /**
  * Created by Robert Apikyan on 8/18/2017.
  * /*     Attributes
@@ -47,7 +49,8 @@ import view_component.lib_android.com.view_component.base_view.layouts.Component
  *
  * @param <D>
  */
-public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlViewComponent<D>, SegmentedControlControllerComponent<D>> {
+public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlViewComponent<D>,
+        SegmentedControlControllerComponent<D>> {
     public SegmentedControl(Context context) {
         this(context, null);
     }
@@ -62,7 +65,9 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     }
 
     private void initAttr(AttributeSet attrs, int defStyle) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.SegmentedControl, defStyle, 0);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
+                R.styleable.SegmentedControl,
+                defStyle, 0);
         fetchAccentColor();
         try {
             attrDistributeEvenly(typedArray);
@@ -72,6 +77,7 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
             attrStrokeWidth(typedArray);
             attrSelectedBackgroundColor(typedArray);
             attrFocusedBackgroundColor(typedArray);
+            attrSelectionAnimationDuration(typedArray);
             attrUnSelectedBackgroundColor(typedArray);
             attrSelectedTextColor(typedArray);
             attrUnSelectedTextColor(typedArray);
@@ -157,6 +163,12 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         });
     }
 
+    private void attrSelectionAnimationDuration(TypedArray typedArray) {
+        getControllerComponent().setSelectionAnimationDuration(
+                typedArray.getInt(R.styleable.SegmentedControl_selectionAnimationDuration,
+                        DEFAULT_SELECTION_ANIMATION_DURATION));
+    }
+
     private void attrSelectedTextColor(TypedArray typedArray) {
         obtainColorAttr(typedArray, R.styleable.SegmentedControl_selectedTextColor, new Consumer<Integer>() {
             @Override
@@ -176,17 +188,18 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     }
 
     private void attrTextSize(TypedArray typedArray) {
-        int textSize = typedArray.getDimensionPixelSize(R.styleable.SegmentedControl_textSize, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));
+        int textSize = typedArray.getDimensionPixelSize(R.styleable.SegmentedControl_textSize,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14,
+                        getResources().getDisplayMetrics()));
         if (textSize > 0) {
             getControllerComponent().setTextSize(textSize);
         }
     }
 
-
     private void attrFontAssetPath(TypedArray typedArray) {
         String fontPath = typedArray.getString(R.styleable.SegmentedControl_fontAssetPath);
-        if (fontPath !=null && !fontPath.isEmpty()) {
-            getControllerComponent().setTypeFace(Typeface.createFromAsset(getContext().getAssets(),fontPath));
+        if (fontPath != null && !fontPath.isEmpty()) {
+            getControllerComponent().setTypeFace(Typeface.createFromAsset(getContext().getAssets(), fontPath));
         }
     }
 
@@ -464,6 +477,18 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().setUnSelectedStrokeColor(color);
     }
 
+    public void setFocusedBackgroundColor(int color){
+        getControllerComponent().setFocusedBackgroundColor(color);
+    }
+
+    /**
+     * Set segments selection animation duration value
+     * @param duration in milliseconds
+     */
+    public void setSelectionAnimationDuration(int duration){
+        getControllerComponent().setSelectionAnimationDuration(duration);
+    }
+
     public void setStrokeWidth(int width) {
         getControllerComponent().setStrokeWidth(width);
     }
@@ -488,7 +513,9 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().setTextSize(textSize);
     }
 
-    public void setTypeFace(Typeface typeFace){getControllerComponent().setTypeFace(typeFace);}
+    public void setTypeFace(Typeface typeFace) {
+        getControllerComponent().setTypeFace(typeFace);
+    }
 
     public void setTextVerticalPadding(int padding) {
         getControllerComponent().setTextVerticalPadding(padding);
@@ -537,16 +564,17 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
      * Removes the last selected segment selection, SegmentViewHolder's onSegmentSelected  method will be called
      * with isSelected = false, isReselected = false
      */
-    public void clearSelection(){
+    public void clearSelection() {
         getControllerComponent().clearSelection(false);
     }
 
     /**
      * Removes the last selected segment selection, SegmentViewHolder's onSegmentSelected  method will be called
      * with isSelected = false, isReselected = false.
+     *
      * @param notifySegmentSelectedListener if true SegmentSelectedListeners will be notified.
      */
-    public void clearSelection(boolean notifySegmentSelectedListener){
+    public void clearSelection(boolean notifySegmentSelectedListener) {
         getControllerComponent().clearSelection(notifySegmentSelectedListener);
     }
 

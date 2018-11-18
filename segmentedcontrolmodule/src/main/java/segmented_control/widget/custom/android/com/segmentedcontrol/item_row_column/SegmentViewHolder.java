@@ -99,6 +99,10 @@ public abstract class SegmentViewHolder<D> extends DistributiveSectionLayout.Vie
         return segmentData.getFocusedBackgroundColor();
     }
 
+    public int getSelectionAnimationDuration(){
+        return segmentData.getSelectionAnimationDuration();
+    }
+
     public int getSelectedTextColor() {
         return segmentData.getSelectedTextColor();
     }

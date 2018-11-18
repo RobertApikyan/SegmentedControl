@@ -83,6 +83,10 @@ public class SegmentData<D> {
         return segmentDecoration.getFocusedBackgroundColor();
     }
 
+    public int getSelectionAnimationDuration(){
+        return segmentDecoration.getSelectionAnimationDuration();
+    }
+
     public int getSelectedTextColor() {
         return segmentDecoration.getSelectedTextColor();
     }
