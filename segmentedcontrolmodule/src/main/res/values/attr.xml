@@ -9,8 +9,8 @@
         <attr name="strokeWidth" format="dimension" />
         <attr name="selectedBackgroundColor" format="color" />
         <attr name="unSelectedBackgroundColor" format="color" />
-        <attr name="focusedBackgroundColor" format="color"/>
         <attr name="selectionAnimationDuration" format="integer"/>
+        <attr name="focusedBackgroundColor" format="color"/>
         <attr name="selectedTextColor" format="color"/>
         <attr name="unSelectedTextColor" format="color"/>
         <attr name="textSize" format="dimension"/>
