@@ -289,8 +289,16 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         notifier.addOnSegmentClickListener(onSegmentClickListener);
     }
 
+    void removeOnSegmentClickListener(OnSegmentClickListener<D> onSegmentClickListener) {
+        notifier.removeOnSegmentClickListener(onSegmentClickListener);
+    }
+
     void addOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
         notifier.addOnSegmentSelectListener(onSegmentSelectedListener);
+    }
+
+    void removeOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
+        notifier.removeOnSegmentSelectListener(onSegmentSelectedListener);
     }
 
     void setOnSegmentSelectRequestListener(OnSegmentSelectRequestListener<D> onSegmentSelectRequestListener) {

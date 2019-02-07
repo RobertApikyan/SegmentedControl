@@ -51,14 +51,25 @@ class Notifier<D> implements OnSegmentClickListener<D>, OnSegmentSelectedListene
         onSegmentClickListeners.add(onSegmentClickListener);
     }
 
+    void removeOnSegmentClickListener(OnSegmentClickListener<D> onSegmentClickListener) {
+        onSegmentClickListeners = lazy(onSegmentClickListeners, new ArrayList<OnSegmentClickListener<D>>());
+        onSegmentClickListeners.remove(onSegmentClickListener);
+    }
+
     void addOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
         onSegmentSelectedListeners = lazy(onSegmentSelectedListeners, new ArrayList<OnSegmentSelectedListener<D>>());
         onSegmentSelectedListeners.add(onSegmentSelectedListener);
     }
 
+    void removeOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
+        onSegmentSelectedListeners = lazy(onSegmentSelectedListeners, new ArrayList<OnSegmentSelectedListener<D>>());
+        onSegmentSelectedListeners.remove(onSegmentSelectedListener);
+    }
+
     void setOnSegmentSelectRequestListener(OnSegmentSelectRequestListener<D> onSegmentSelectRequestListener) {
         this.onSegmentSelectRequestListener = onSegmentSelectRequestListener;
     }
+
 
     private <T> void onEvent(List<T> eventListeners, Consumer<T> listenerConsumer) {
         if (eventListeners != null && eventListeners.size() != 0) {
