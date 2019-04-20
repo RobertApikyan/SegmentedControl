@@ -394,11 +394,31 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     }
 
     /**
+     * @param onSegmentClickListener, every time click event will be notified,
+     *                                even if the segment is already selected
+     *
+     * Remove listener
+     */
+    public void removeOnSegmentClickListener(OnSegmentClickListener<D> onSegmentClickListener) {
+        getControllerComponent().removeOnSegmentClickListener(onSegmentClickListener);
+    }
+
+    /**
      * @param onSegmentSelectedListener, event will be notified, when segment is selected and unSelected and reselected,
      *                                   for more info check out {@link OnSegmentSelectedListener} class
      */
     public void addOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
         getControllerComponent().addOnSegmentSelectListener(onSegmentSelectedListener);
+    }
+
+    /**
+     * @param onSegmentSelectedListener, event will be notified, when segment is selected and unSelected and reselected,
+     *                                   for more info check out {@link OnSegmentSelectedListener} class
+     *
+     * Remove listener
+     */
+    public void removeOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
+        getControllerComponent().removeOnSegmentSelectListener(onSegmentSelectedListener);
     }
 
     /**
