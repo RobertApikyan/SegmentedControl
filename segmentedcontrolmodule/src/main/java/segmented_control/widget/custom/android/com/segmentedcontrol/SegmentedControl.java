@@ -309,8 +309,8 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     }
 
     private void obtainColorAttr(TypedArray typedArray, int attr, Consumer<Integer> colorConsumer) {
-        int color = typedArray.getColor(attr, -1);
-        if (color != -1) {
+        int color = typedArray.getColor(attr, -2); // -1 is white
+        if (color != -2) {
             colorConsumer.apply(color);
         }
     }
