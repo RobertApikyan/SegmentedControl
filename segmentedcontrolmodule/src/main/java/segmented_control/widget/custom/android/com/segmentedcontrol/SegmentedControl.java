@@ -28,6 +28,7 @@ import static segmented_control.widget.custom.android.com.segmentedcontrol.item_
  * <attr name="distributeEvenly" format="boolean" /> {@link #setDistributeEvenly(boolean)}
  * <attr name="columnCount" format="integer" /> {@link #setColumnCount(int)}
  * <attr name="segments" format="reference" /> {@link #addSegments(Object[])} {@link #addSegments(List)}
+ * <attr name="supportedSegmentsCount" format="reference"/> {@link #setSupportedSelectionsCount(int)}
  * <attr name="selectedStrokeColor" format="color" /> {@link #setSelectedStrokeColor(int)}
  * <attr name="unSelectedStrokeColor" format="color" /> {@link #setUnSelectedStrokeColor(int)}
  * <attr name="strokeWidth" format="dimension" />{@link #setStrokeWidth(int)}
@@ -72,6 +73,7 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         try {
             attrDistributeEvenly(typedArray);
             attrColumnCount(typedArray);
+            attrSupportedSelectionsCount(typedArray);
             attrSelectedStrokeColor(typedArray);
             attrUnSelectedStrokeColor(typedArray);
             attrStrokeWidth(typedArray);
@@ -302,6 +304,13 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         notifyConfigIsChanged();
     }
 
+    private void attrSupportedSelectionsCount(TypedArray typedArray){
+        int supportedSelectionsCount = typedArray.getInteger(R.styleable.SegmentedControl_supportedSelectionsCount,Configs.DEFAULT_SUPPORTED_SELECTIONS_COUNT);
+        if (supportedSelectionsCount > 0){
+            getControllerComponent().setSupportedSelectionsCount(supportedSelectionsCount);
+        }
+    }
+
     private void attrDistributeEvenly(TypedArray typedArray) {
         boolean willDistribute = typedArray.getBoolean(R.styleable.SegmentedControl_distributeEvenly, false);
         getControllerComponent().setDistributeEvenly(willDistribute);
@@ -333,6 +342,11 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     @Override
     public SegmentedControlControllerComponent<D> createControllerComponent() {
         return new SegmentedControlControllerComponent<>();
+    }
+
+    public void setSupportedSelectionsCount(int supportedSelectionsCount){
+       Assert.supportedSelectionsCount(supportedSelectionsCount);
+       getControllerComponent().setSupportedSelectionsCount(supportedSelectionsCount);
     }
 
     /**
@@ -610,19 +624,19 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         return getControllerComponent().size();
     }
 
-    public SegmentViewHolder<D> getSelectedViewHolder() {
-        return getControllerComponent().getSelectedViewHolder();
-    }
+//    public SegmentViewHolder<D> getSelectedViewHolder() {
+//        return getControllerComponent().getSelectedViewHolder();
+//    }
 
     /**
      * @return int[]{column,row} Section column and row numbers
      */
-    public int[] getSelectedColumnAndRow() {
-        return getControllerComponent().getSelectedColumnAndRow();
+    public int[] getLastSelectedColumnAndRow() {
+        return getControllerComponent().getLastSelectedColumnAndRow();
     }
 
-    public int getSelectedAbsolutePosition() {
-        return getControllerComponent().getSelectedAbsolutePosition();
+    public int getLastSelectedAbsolutePosition() {
+        return getControllerComponent().getLastSelectedAbsolutePosition();
     }
 
     public boolean hasSelectedSegment() {

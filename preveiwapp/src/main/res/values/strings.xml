@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">preveiwApp</string>
+
+    <string-array name="segments">
+        <item>One</item>
+        <item>Port</item>
+        <item>Google</item>
+        <item>Yandex</item>
+        <item>Facebook</item>
+        <item>Instagram</item>
+        <item>Flutter</item>
+        <item>Android</item>
+        <item>MacOs</item>
+        <item>Windows</item>
+        <item>Sega</item>
+        <item>Pinball</item>
+    </string-array>
+</resources>

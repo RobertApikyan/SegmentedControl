@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="SegmentedControl">
         <attr name="distributeEvenly" format="boolean" />
+        <attr name="supportedSelectionsCount" format="integer"/>
         <attr name="columnCount" format="integer" />
         <attr name="segments" format="reference" />
         <attr name="selectedStrokeColor" format="color" />

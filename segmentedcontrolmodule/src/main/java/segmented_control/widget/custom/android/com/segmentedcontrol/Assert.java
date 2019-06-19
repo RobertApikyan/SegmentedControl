@@ -30,5 +30,11 @@ class Assert {
             }
         }
     }
+
+    public static void supportedSelectionsCount(int supportedSelectionsCount) {
+        throwIf(supportedSelectionsCount < Configs.DEFAULT_SUPPORTED_SELECTIONS_COUNT,
+                new IllegalStateException("SegmentedControl#setSupportedSelectionsCount -> supportedSelectionsCount value is invalid: " +
+                        " " + "supportedSelectionsCount= "+supportedSelectionsCount));
+    }
 }
 

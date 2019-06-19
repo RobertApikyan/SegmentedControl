@@ -1,10 +1,13 @@
 package segmented_control.widget.custom.android.com.segmentedcontrol;
 
 import android.graphics.Typeface;
+import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import section_layout.widget.custom.android.com.sectionlayout.SectionLayout;
 import section_layout.widget.custom.android.com.sectionlayout.distributive_section_layout.DistributiveSectionLayout;
@@ -25,33 +28,80 @@ import view_component.lib_android.com.view_component.base_view.ControllerCompone
 
 class SegmentedControlControllerComponent<D> extends ControllerComponent<SegmentedControlViewComponent<D>> {
     private final Configs configs = Configs.getDefault();
-    private SegmentViewHolder<D> lastClickedSegmentViewHolder;
+//    private SegmentViewHolder<D> lastClickedSegmentViewHolder;
+    private LinkedList<SegmentViewHolder<D>> selectedSegments = new LinkedList<>();
     private final Notifier<D> notifier = new Notifier<>();
     private final List<D> dataList = new ArrayList<>();
+
+//    private final OnSegmentClickListener<D> _onSegmentClickListener = new OnSegmentClickListener<D>() {
+//        @Override
+//        public void onSegmentClick(SegmentViewHolder<D> segmentViewHolder) {
+//            notifier.onSegmentClick(segmentViewHolder);
+//
+//            if (segmentViewHolder.equals(lastClickedSegmentViewHolder)) {
+//                // on section reselected
+//                segmentViewHolder.setSelected(true);
+//                notifier.onSegmentSelected(segmentViewHolder, true, true);
+//            } else if (notifier.onSegmentSelectRequest(segmentViewHolder)) {
+//                // on section selected
+//                // unSelect the last one
+//                if (lastClickedSegmentViewHolder != null) {
+//                    lastClickedSegmentViewHolder.setSelected(false);
+//                    notifier.onSegmentSelected(lastClickedSegmentViewHolder, false, false);
+//                }
+//                // select the current
+//                lastClickedSegmentViewHolder = segmentViewHolder;
+//                segmentViewHolder.setSelected(true);
+//                notifier.onSegmentSelected(segmentViewHolder, true, false);
+//            }
+//        }
+//    };
 
     private final OnSegmentClickListener<D> onSegmentClickListener = new OnSegmentClickListener<D>() {
         @Override
         public void onSegmentClick(SegmentViewHolder<D> segmentViewHolder) {
             notifier.onSegmentClick(segmentViewHolder);
 
-            if (segmentViewHolder.equals(lastClickedSegmentViewHolder)) {
+            int index = selectedSegments.indexOf(segmentViewHolder);
+            boolean contains = index != -1;
+            if (contains){
                 // on section reselected
-                segmentViewHolder.setSelected(true);
-                notifier.onSegmentSelected(segmentViewHolder, true, true);
-            } else if (notifier.onSegmentSelectRequest(segmentViewHolder)) {
+                SegmentViewHolder<D> viewHolder = selectedSegments.get(index);
+                viewHolder.setSelected(true);
+                notifier.onSegmentSelected(segmentViewHolder,true,true);
+            } else if (notifier.onSegmentSelectRequest(segmentViewHolder)){
                 // on section selected
                 // unSelect the last one
-                if (lastClickedSegmentViewHolder != null) {
-                    lastClickedSegmentViewHolder.setSelected(false);
-                    notifier.onSegmentSelected(lastClickedSegmentViewHolder, false, false);
+                SegmentViewHolder<D> lastSelected = addSelectedSegmentViewHolder(segmentViewHolder);
+                if (lastSelected!=null){
+                    lastSelected.setSelected(false);
+                    notifier.onSegmentSelected(lastSelected,false,false);
                 }
                 // select the current
-                lastClickedSegmentViewHolder = segmentViewHolder;
                 segmentViewHolder.setSelected(true);
-                notifier.onSegmentSelected(segmentViewHolder, true, false);
+                notifier.onSegmentSelected(segmentViewHolder,true,false);
             }
         }
     };
+
+    /**
+     * Watch the supported selections count, if limit is reached the oldest segment will be removed from
+     * selections list and returned back to method caller
+     * @param segmentViewHolder new selected segment;
+     * @return oldest selection
+     */
+    @Nullable
+    private SegmentViewHolder<D> addSelectedSegmentViewHolder(SegmentViewHolder<D> segmentViewHolder){
+        selectedSegments.add(segmentViewHolder);
+        if (selectedSegments.size() > configs.supportedSelectionsCount){
+            return selectedSegments.remove(0);
+        }
+        return null;
+    }
+
+    private SegmentViewHolder<D> getLastSelectedViewHolder(){
+        return selectedSegments.getLast();
+    }
 
     private void addSegment(D segmentData) {
         if (getVerticalSectionLayout().size() == 0 || !canAddToLastRow()) {
@@ -62,6 +112,18 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
     }
 
     // removeLastSelected = true
+//    private void removeAllSegments(boolean removeLastSelected) {
+//        for (int row = 0; row < getVerticalSectionLayout().size(); row++) {
+//            getHorizontalSectionLayout(row).removeAllSections();
+//        }
+//        getVerticalSectionLayout().removeAllSections();
+//        dataList.clear();
+//
+//        if (removeLastSelected) {
+//            lastClickedSegmentViewHolder = null;
+//        }
+//    }
+
     private void removeAllSegments(boolean removeLastSelected) {
         for (int row = 0; row < getVerticalSectionLayout().size(); row++) {
             getHorizontalSectionLayout(row).removeAllSections();
@@ -70,7 +132,7 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         dataList.clear();
 
         if (removeLastSelected) {
-            lastClickedSegmentViewHolder = null;
+            selectedSegments.clear();
         }
     }
 
@@ -94,25 +156,51 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         recreate(false);
     }
 
-    public void clearSelection(boolean notifySegmentSelectedListener) {
-        if (lastClickedSegmentViewHolder != null) {
-            lastClickedSegmentViewHolder.setSelected(false);
+//    public void clearSelection(boolean notifySegmentSelectedListener) {
+//        if (lastClickedSegmentViewHolder != null) {
+//            lastClickedSegmentViewHolder.setSelected(false);
+//
+//            if (notifySegmentSelectedListener) {
+//                notifier.onSegmentSelected(lastClickedSegmentViewHolder, false, false);
+//            }
+//
+//            lastClickedSegmentViewHolder = null;
+//        }
+//    }
 
-            if (notifySegmentSelectedListener) {
-                notifier.onSegmentSelected(lastClickedSegmentViewHolder, false, false);
+    public void clearSelection(boolean notifySegmentSelectedListener) {
+        if (!selectedSegments.isEmpty()){
+            for (SegmentViewHolder<D> selectedSegment : selectedSegments) {
+                selectedSegment.setSelected(false);
+
+                if (notifySegmentSelectedListener){
+                    notifier.onSegmentSelected(selectedSegment,false,false);
+                }
             }
 
-            lastClickedSegmentViewHolder = null;
+            selectedSegments.clear();
         }
     }
+
+//    private void recreate(boolean removeLastSelected) {
+//        if (dataList.size() == 0) return;
+//        List<D> itemsData = new ArrayList<>(dataList);
+//        removeAllSegments(removeLastSelected);
+//        addSegments(itemsData);
+//        if (lastClickedSegmentViewHolder != null) {
+//            setSelectedSegment(lastClickedSegmentViewHolder.getAbsolutePosition());
+//        }
+//    }
 
     private void recreate(boolean removeLastSelected) {
         if (dataList.size() == 0) return;
         List<D> itemsData = new ArrayList<>(dataList);
         removeAllSegments(removeLastSelected);
         addSegments(itemsData);
-        if (lastClickedSegmentViewHolder != null) {
-            setSelectedSegment(lastClickedSegmentViewHolder.getAbsolutePosition());
+
+        SegmentViewHolder<D> lastSelection = getLastSelectedViewHolder();
+        if (lastSelection != null) {
+            setSelectedSegment(lastSelection.getAbsolutePosition());
         }
     }
 
@@ -281,6 +369,10 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         configs.willDistributeEvenly = willDistributeEvenly;
     }
 
+    void setSupportedSelectionsCount(int supportedSelectionsCount){
+        configs.supportedSelectionsCount = supportedSelectionsCount;
+    }
+
     void setColumnCount(int columnCount) {
         configs.columnCount = columnCount;
     }
@@ -314,20 +406,38 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         onSegmentClickListener.onSegmentClick(findSegmentByColumnAndRow(column, row));
     }
 
-    SegmentViewHolder<D> getSelectedViewHolder() {
-        return lastClickedSegmentViewHolder;
+//    SegmentViewHolder<D> getSelectedViewHolder() {
+//        return lastClickedSegmentViewHolder;
+//    }
+
+    List<SegmentViewHolder<D>> getSelectedViewHolders(){
+        return selectedSegments;
     }
 
-    int[] getSelectedColumnAndRow() {
-        return isSelected() ? new int[]{lastClickedSegmentViewHolder.getColumn(), lastClickedSegmentViewHolder.getRow()} : new int[]{-1, -1};
+    int[] getLastSelectedColumnAndRow() {
+        SegmentViewHolder<D> lastSelection = getLastSelectedViewHolder();
+        if (lastSelection!=null){
+            return new int[]{lastSelection.getColumn(),lastSelection.getRow()};
+        }else{
+            return new int[]{-1,-1};
+        }
+    }
+//
+    int getLastSelectedAbsolutePosition() {
+        SegmentViewHolder<D> lastSelection = getLastSelectedViewHolder();
+        if (lastSelection!=null){
+            return lastSelection.getAbsolutePosition();
+        }else{
+            return -1;
+        }
     }
 
-    int getSelectedAbsolutePosition() {
-        return isSelected() ? lastClickedSegmentViewHolder.getAbsolutePosition() : -1;
-    }
+//    boolean isSelected() {
+//        return lastClickedSegmentViewHolder != null;
+//    }
 
-    boolean isSelected() {
-        return lastClickedSegmentViewHolder != null;
+    boolean isSelected(){
+        return !selectedSegments.isEmpty();
     }
 
     int size() {

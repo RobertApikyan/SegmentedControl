@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+        <segmented_control.widget.custom.android.com.segmentedcontrol.SegmentedControl
+            android:id="@+id/sc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:supportedSelectionsCount="3"
+            app:distributeEvenly="true"
+            app:selectionAnimationDuration="5000"
+            android:layout_margin="16dp"
+            app:radius="16dp"
+            app:textVerticalPadding="4dp"
+            app:segments="@array/segments"/>
+
+</FrameLayout>
