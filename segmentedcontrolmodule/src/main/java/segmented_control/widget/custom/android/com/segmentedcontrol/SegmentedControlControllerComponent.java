@@ -28,7 +28,7 @@ import view_component.lib_android.com.view_component.base_view.ControllerCompone
 
 class SegmentedControlControllerComponent<D> extends ControllerComponent<SegmentedControlViewComponent<D>> {
     private final Configs configs = Configs.getDefault();
-//    private SegmentViewHolder<D> lastClickedSegmentViewHolder;
+    //    private SegmentViewHolder<D> lastClickedSegmentViewHolder;
     private LinkedList<SegmentViewHolder<D>> selectedSegments = new LinkedList<>();
     private final Notifier<D> notifier = new Notifier<>();
     private final List<D> dataList = new ArrayList<>();
@@ -64,22 +64,22 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
 
             int index = selectedSegments.indexOf(segmentViewHolder);
             boolean contains = index != -1;
-            if (contains){
+            if (contains) {
                 // on section reselected
                 SegmentViewHolder<D> viewHolder = selectedSegments.get(index);
                 viewHolder.setSelected(true);
-                notifier.onSegmentSelected(segmentViewHolder,true,true);
-            } else if (notifier.onSegmentSelectRequest(segmentViewHolder)){
+                notifier.onSegmentSelected(segmentViewHolder, true, true);
+            } else if (notifier.onSegmentSelectRequest(segmentViewHolder)) {
                 // on section selected
                 // unSelect the last one
                 SegmentViewHolder<D> lastSelected = addSelectedSegmentViewHolder(segmentViewHolder);
-                if (lastSelected!=null){
+                if (lastSelected != null) {
                     lastSelected.setSelected(false);
-                    notifier.onSegmentSelected(lastSelected,false,false);
+                    notifier.onSegmentSelected(lastSelected, false, false);
                 }
                 // select the current
                 segmentViewHolder.setSelected(true);
-                notifier.onSegmentSelected(segmentViewHolder,true,false);
+                notifier.onSegmentSelected(segmentViewHolder, true, false);
             }
         }
     };
@@ -87,20 +87,21 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
     /**
      * Watch the supported selections count, if limit is reached the oldest segment will be removed from
      * selections list and returned back to method caller
+     *
      * @param segmentViewHolder new selected segment;
      * @return oldest selection
      */
     @Nullable
-    private SegmentViewHolder<D> addSelectedSegmentViewHolder(SegmentViewHolder<D> segmentViewHolder){
+    private SegmentViewHolder<D> addSelectedSegmentViewHolder(SegmentViewHolder<D> segmentViewHolder) {
         selectedSegments.add(segmentViewHolder);
-        if (selectedSegments.size() > configs.supportedSelectionsCount){
+        if (selectedSegments.size() > configs.supportedSelectionsCount) {
             return selectedSegments.remove(0);
         }
         return null;
     }
 
-    private SegmentViewHolder<D> getLastSelectedViewHolder(){
-        return selectedSegments.getLast();
+    private SegmentViewHolder<D> getLastSelectedViewHolder() {
+        return selectedSegments.size() > 0 ? selectedSegments.getLast() : null;
     }
 
     private void addSegment(D segmentData) {
@@ -169,12 +170,12 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
 //    }
 
     public void clearSelection(boolean notifySegmentSelectedListener) {
-        if (!selectedSegments.isEmpty()){
+        if (!selectedSegments.isEmpty()) {
             for (SegmentViewHolder<D> selectedSegment : selectedSegments) {
                 selectedSegment.setSelected(false);
 
-                if (notifySegmentSelectedListener){
-                    notifier.onSegmentSelected(selectedSegment,false,false);
+                if (notifySegmentSelectedListener) {
+                    notifier.onSegmentSelected(selectedSegment, false, false);
                 }
             }
 
@@ -274,11 +275,11 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         configs.segmentDecoration.unSelectedBackgroundColor = color;
     }
 
-    void setFocusedBackgroundColor(int color){
+    void setFocusedBackgroundColor(int color) {
         configs.segmentDecoration.focusedBackgroundColor = color;
     }
 
-    void setSelectionAnimationDuration(int duration){
+    void setSelectionAnimationDuration(int duration) {
         configs.segmentDecoration.selectionAnimationDuration = duration;
     }
 
@@ -369,7 +370,7 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
         configs.willDistributeEvenly = willDistributeEvenly;
     }
 
-    void setSupportedSelectionsCount(int supportedSelectionsCount){
+    void setSupportedSelectionsCount(int supportedSelectionsCount) {
         configs.supportedSelectionsCount = supportedSelectionsCount;
     }
 
@@ -410,24 +411,25 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
 //        return lastClickedSegmentViewHolder;
 //    }
 
-    List<SegmentViewHolder<D>> getSelectedViewHolders(){
+    List<SegmentViewHolder<D>> getSelectedViewHolders() {
         return selectedSegments;
     }
 
     int[] getLastSelectedColumnAndRow() {
         SegmentViewHolder<D> lastSelection = getLastSelectedViewHolder();
-        if (lastSelection!=null){
-            return new int[]{lastSelection.getColumn(),lastSelection.getRow()};
-        }else{
-            return new int[]{-1,-1};
+        if (lastSelection != null) {
+            return new int[]{lastSelection.getColumn(), lastSelection.getRow()};
+        } else {
+            return new int[]{-1, -1};
         }
     }
-//
+
+    //
     int getLastSelectedAbsolutePosition() {
         SegmentViewHolder<D> lastSelection = getLastSelectedViewHolder();
-        if (lastSelection!=null){
+        if (lastSelection != null) {
             return lastSelection.getAbsolutePosition();
-        }else{
+        } else {
             return -1;
         }
     }
@@ -436,7 +438,7 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
 //        return lastClickedSegmentViewHolder != null;
 //    }
 
-    boolean isSelected(){
+    boolean isSelected() {
         return !selectedSegments.isEmpty();
     }
 

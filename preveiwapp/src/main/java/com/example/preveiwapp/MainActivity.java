@@ -18,7 +18,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sc = findViewById(R.id.sc);
-        sc.setSupportedSelectionsCount(6);
+
+        sc.addSegments(getResources().getStringArray(R.array.segments));
+
+        sc.setColumnCount(3);
+        sc.notifyConfigIsChanged();
+
         sc.addOnSegmentSelectListener(new OnSegmentSelectedListener<String>() {
             @Override
             public void onSegmentSelected(SegmentViewHolder<String> segmentViewHolder, boolean isSelected, boolean isReselected) {
@@ -32,5 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Segment Click",segmentViewHolder.getSegmentData());
             }
         });
+
     }
 }

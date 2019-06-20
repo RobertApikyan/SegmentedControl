@@ -12,10 +12,8 @@
             android:layout_height="wrap_content"
             app:supportedSelectionsCount="3"
             app:distributeEvenly="true"
-            app:selectionAnimationDuration="5000"
             android:layout_margin="16dp"
             app:radius="16dp"
-            app:textVerticalPadding="4dp"
-            app:segments="@array/segments"/>
+            app:textVerticalPadding="4dp"/>
 
 </FrameLayout>
