@@ -1,4 +1,4 @@
-# Android SegmentedControl + multi row support 
+# Android SegmentedControl + multi row support + multi selection
 ### minSdk API 14+
 
 ![N|Solid](https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png)
@@ -15,6 +15,8 @@
 <img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/intro.gif.gif" width="300" height="525" />
 
 ## ScreenShots
+
+<img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/intro/intro/ezgif.com-optimize.gif" width="400" />
 <img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133621.png" width="400" />
 <img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133711.png" width="400" />
 <img src="https://raw.githubusercontent.com/RobertApikyan/SegmentedControl/release_v0.1/docs/device-2017-09-14-133736.png" width="400" />
@@ -37,7 +39,7 @@ allprojects {
 Add dependency to app module level build.gradle
 ```groovy
 dependencies {
-    implementation 'com.github.RobertApikyan:SegmentedControl:1.1.3'
+    implementation 'com.github.RobertApikyan:SegmentedControl:1.2.0'
 }
 ```
 ### Maven
@@ -68,7 +70,7 @@ Add dependency
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                app:columnCount="3"
+                app:columnCount="3"				       
                 app:distributeEvenly="true"
                 app:textVerticalPadding="6dp"
                 app:radius="12dp"
@@ -77,6 +79,8 @@ Add dependency
 
 Attributes 
 ```xml
+     <attr name="supportedSelectionsCount" format="boolean" /> setSupportedSelectionsCount(int)
+     <attr name="reselectionEnabled" format="boolean" /> setDistributeEvenly(boolean)
      <attr name="distributeEvenly" format="boolean" /> setDistributeEvenly(boolean)
      <attr name="columnCount" format="integer" /> setColumnCount(int)
      <attr name="segments" format="reference" /> addSegments(Object[]), addSegments(List)
