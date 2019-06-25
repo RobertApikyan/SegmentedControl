@@ -351,6 +351,12 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         return new SegmentedControlControllerComponent<>();
     }
 
+    /**
+     * Will enabled multy selection, default value is 1, only one item can be selected at the time
+     * @param supportedSelectionsCount specifies the count of selected segments at the same time,
+     *                                 if the selection count is reached the elder selection
+     *                                 will be unselected
+     */
     public void setSupportedSelectionsCount(int supportedSelectionsCount) {
         Assert.supportedSelectionsCount(supportedSelectionsCount);
         getControllerComponent().setSupportedSelectionsCount(supportedSelectionsCount);
