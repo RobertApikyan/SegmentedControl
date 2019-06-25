@@ -306,9 +306,9 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         notifyConfigIsChanged();
     }
 
-    private void attrSupportedSelectionsCount(TypedArray typedArray){
-        int supportedSelectionsCount = typedArray.getInteger(R.styleable.SegmentedControl_supportedSelectionsCount,Configs.DEFAULT_SUPPORTED_SELECTIONS_COUNT);
-        if (supportedSelectionsCount > 0){
+    private void attrSupportedSelectionsCount(TypedArray typedArray) {
+        int supportedSelectionsCount = typedArray.getInteger(R.styleable.SegmentedControl_supportedSelectionsCount, Configs.DEFAULT_SUPPORTED_SELECTIONS_COUNT);
+        if (supportedSelectionsCount > 0) {
             getControllerComponent().setSupportedSelectionsCount(supportedSelectionsCount);
         }
     }
@@ -319,8 +319,8 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().notifyConfigIsChanged();
     }
 
-    private void attrReselectionEnabled(TypedArray typedArray){
-        boolean reselectionEnabled = typedArray.getBoolean(R.styleable.SegmentedControl_reselectionEnabled,true);
+    private void attrReselectionEnabled(TypedArray typedArray) {
+        boolean reselectionEnabled = typedArray.getBoolean(R.styleable.SegmentedControl_reselectionEnabled, true);
         getControllerComponent().setReselectionEnabled(reselectionEnabled);
     }
 
@@ -351,9 +351,9 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         return new SegmentedControlControllerComponent<>();
     }
 
-    public void setSupportedSelectionsCount(int supportedSelectionsCount){
-       Assert.supportedSelectionsCount(supportedSelectionsCount);
-       getControllerComponent().setSupportedSelectionsCount(supportedSelectionsCount);
+    public void setSupportedSelectionsCount(int supportedSelectionsCount) {
+        Assert.supportedSelectionsCount(supportedSelectionsCount);
+        getControllerComponent().setSupportedSelectionsCount(supportedSelectionsCount);
     }
 
     /**
@@ -406,7 +406,12 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().setDistributeEvenly(willDistributeEvenly);
     }
 
-    public void setReselectionEnabled(boolean isEnabled){
+    /**
+     * @param isEnabled if true second click to segment will not turn it from selected to unselected state,
+     *                  if false the second click will turn it from selected to un selected state,
+     *                  default value is true
+     */
+    public void setReselectionEnabled(boolean isEnabled) {
         getControllerComponent().setReselectionEnabled(isEnabled);
     }
 
@@ -421,8 +426,8 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     /**
      * @param onSegmentClickListener, every time click event will be notified,
      *                                even if the segment is already selected
-     *
-     * Remove listener
+     *                                <p>
+     *                                Remove listener
      */
     public void removeOnSegmentClickListener(OnSegmentClickListener<D> onSegmentClickListener) {
         getControllerComponent().removeOnSegmentClickListener(onSegmentClickListener);
@@ -439,8 +444,8 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
     /**
      * @param onSegmentSelectedListener, event will be notified, when segment is selected and unSelected and reselected,
      *                                   for more info check out {@link OnSegmentSelectedListener} class
-     *
-     * Remove listener
+     *                                   <p>
+     *                                   Remove listener
      */
     public void removeOnSegmentSelectListener(OnSegmentSelectedListener<D> onSegmentSelectedListener) {
         getControllerComponent().removeOnSegmentSelectListener(onSegmentSelectedListener);
@@ -522,15 +527,16 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().setUnSelectedStrokeColor(color);
     }
 
-    public void setFocusedBackgroundColor(int color){
+    public void setFocusedBackgroundColor(int color) {
         getControllerComponent().setFocusedBackgroundColor(color);
     }
 
     /**
      * Set segments selection animation duration value
+     *
      * @param duration in milliseconds
      */
-    public void setSelectionAnimationDuration(int duration){
+    public void setSelectionAnimationDuration(int duration) {
         getControllerComponent().setSelectionAnimationDuration(duration);
     }
 
