@@ -67,8 +67,15 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
             if (contains) {
                 // on section reselected
                 SegmentViewHolder<D> viewHolder = selectedSegments.get(index);
-                viewHolder.setSelected(true);
-                notifier.onSegmentSelected(segmentViewHolder, true, true);
+                if (configs.reselectionEnabled){
+                    viewHolder.setSelected(true);
+                    notifier.onSegmentSelected(segmentViewHolder, true, true);
+                }else{
+                    selectedSegments.remove(index);
+                    viewHolder.setSelected(false);
+                    notifier.onSegmentSelected(segmentViewHolder, false, false);
+                }
+
             } else if (notifier.onSegmentSelectRequest(segmentViewHolder)) {
                 // on section selected
                 // unSelect the last one
@@ -277,6 +284,10 @@ class SegmentedControlControllerComponent<D> extends ControllerComponent<Segment
 
     void setFocusedBackgroundColor(int color) {
         configs.segmentDecoration.focusedBackgroundColor = color;
+    }
+
+    void setReselectionEnabled(boolean isEnabled){
+        configs.reselectionEnabled = isEnabled;
     }
 
     void setSelectionAnimationDuration(int duration) {

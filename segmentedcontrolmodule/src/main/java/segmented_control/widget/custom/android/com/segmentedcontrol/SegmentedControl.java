@@ -26,6 +26,7 @@ import static segmented_control.widget.custom.android.com.segmentedcontrol.item_
  * Created by Robert Apikyan on 8/18/2017.
  * /*     Attributes
  * <attr name="distributeEvenly" format="boolean" /> {@link #setDistributeEvenly(boolean)}
+ * <attr name="reselectionEnabled" format="boolean" /> {@link #setReselectionEnabled(boolean)}
  * <attr name="columnCount" format="integer" /> {@link #setColumnCount(int)}
  * <attr name="segments" format="reference" /> {@link #addSegments(Object[])} {@link #addSegments(List)}
  * <attr name="supportedSegmentsCount" format="reference"/> {@link #setSupportedSelectionsCount(int)}
@@ -72,6 +73,7 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         fetchAccentColor();
         try {
             attrDistributeEvenly(typedArray);
+            attrReselectionEnabled(typedArray);
             attrColumnCount(typedArray);
             attrSupportedSelectionsCount(typedArray);
             attrSelectedStrokeColor(typedArray);
@@ -317,6 +319,11 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
         getControllerComponent().notifyConfigIsChanged();
     }
 
+    private void attrReselectionEnabled(TypedArray typedArray){
+        boolean reselectionEnabled = typedArray.getBoolean(R.styleable.SegmentedControl_reselectionEnabled,true);
+        getControllerComponent().setReselectionEnabled(reselectionEnabled);
+    }
+
     private void obtainColorAttr(TypedArray typedArray, int attr, Consumer<Integer> colorConsumer) {
         int color = typedArray.getColor(attr, -2); // -1 is white
         if (color != -2) {
@@ -397,6 +404,10 @@ public class SegmentedControl<D> extends ComponentFrameLayout<SegmentedControlVi
      */
     public void setDistributeEvenly(boolean willDistributeEvenly) {
         getControllerComponent().setDistributeEvenly(willDistributeEvenly);
+    }
+
+    public void setReselectionEnabled(boolean isEnabled){
+        getControllerComponent().setReselectionEnabled(isEnabled);
     }
 
     /**

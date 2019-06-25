@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SegmentedControl">
+        <attr name="reselectionEnabled" format="boolean"/>
         <attr name="distributeEvenly" format="boolean" />
         <attr name="supportedSelectionsCount" format="integer"/>
         <attr name="columnCount" format="integer" />

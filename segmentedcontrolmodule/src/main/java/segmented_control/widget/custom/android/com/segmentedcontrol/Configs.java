@@ -11,6 +11,7 @@ class Configs {
     static final int DEFAULT_SUPPORTED_SELECTIONS_COUNT = 1;
 
     boolean willDistributeEvenly;
+    boolean reselectionEnabled;
 
     int columnCount;
     int supportedSelectionsCount;
@@ -19,6 +20,7 @@ class Configs {
 
     static Configs getDefault() {
         Configs configs = new Configs();
+        configs.reselectionEnabled = true;
         configs.willDistributeEvenly = false;
         configs.columnCount = DEFAULT_COLUMN_COUNT;
         configs.supportedSelectionsCount = DEFAULT_SUPPORTED_SELECTIONS_COUNT;
